@@ -20,8 +20,8 @@
         </a>
             <hr class="sidebar-divider my-0">
             <ul class="navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Beispiele</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Tutorial</span></a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Beispiele</span></a></li> <!--TODO-->
+                <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Tutorial</span></a></li> <!--TODO-->
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
@@ -44,7 +44,7 @@
                                         <h2 class="accordion-header" role="tab"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">IPWA 1-3-1</button></h2>
                                         <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
                                             <div class="accordion-body">
-                                                <p class="mb-0"></p><a href="/ipwa131">IPWA 1-3-1: Servlets</a>
+                                                <p class="mb-0"></p><a href="ipwa131">IPWA 1-3-1: Servlets</a>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +52,9 @@
                                         <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">IPWA 1-3-2</button></h2>
                                         <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
                                             <div class="accordion-body">
-                                                <p class="mb-0"></p><a href="/ipwa132">IPWA 1-3-2: JSP</a>                                            </div>
+                                                <p class="mb-0"></p><a href="ipwa132">IPWA 1-3-2: JSP</a>
+                                                <p class="mb-0"></p><a href="ipwa132besser">IPWA 1-3-2: JSP Aber besser</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
