@@ -58,10 +58,21 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Accordion Item</button></h2>
+                                        <h2 class="accordion-header" role="tab">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-2">IPWA 1-3-3</button></h2>
                                         <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
                                             <div class="accordion-body">
-                                                <p class="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                                <p class="mb-0"></p><a href="ipwa133">IPWA 1-3-3: AJAX</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion" role="tablist" id="accordion-1">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" role="tab"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">IPWA 1-4-1-1</button></h2>
+                                        <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                                            <div class="accordion-body">
+                                                <p class="mb-0"></p><a href="pages/ipwa1411.xhtml">IPWA 1-4-1: JSF erster eindruck</a>
                                             </div>
                                         </div>
                                     </div>

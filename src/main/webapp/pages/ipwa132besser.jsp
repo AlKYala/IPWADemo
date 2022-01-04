@@ -12,6 +12,7 @@
 </head>
 <body>
 <h1> Dein parameter fuer name ${requestScope.name} - name1 lautet: ${requestScope.name2}</h1> <!-- so wesentlich besser!-->
+<small>Wenn du keine parameter siehst, dann gibt in der URL-Bar welche ein</small>
 </body>
 
 </html>
