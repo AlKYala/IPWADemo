@@ -11,7 +11,7 @@
     <title>JSP Beispiel</title>
 </head>
 <body>
-<h1> Dein parameter fuer name ${requestScope.name} - name1 lautet: #{requestScope.name2}</h1> <!-- so wesentlich besser!-->
+<h1> Dein parameter fuer name ${requestScope.name} - name1 lautet: ${requestScope.name2}</h1> <!-- so wesentlich besser!-->
 </body>
 
 </html>
