@@ -1,0 +1,19 @@
+/*
+1:1 uebernommen aus dem skript
+ */
+
+table.band {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid grey;
+    padding: 3px;
+    padding-left: 8px;
+}
+
+th {
+    text-align: left;
+    background-color: #cccccc;
+}
+
