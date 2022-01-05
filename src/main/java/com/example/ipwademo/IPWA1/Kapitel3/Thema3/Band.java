@@ -10,6 +10,10 @@ public class Band {
     private String bassist;
     private String drummer;
 
+    public Band() {
+
+    }
+
     public Band(String name, String saenger, String gitarrrist, String bassist, String drummer) {
         this.setName(name);
         this.setSaenger(saenger);
