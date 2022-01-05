@@ -6,7 +6,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-    <h:outputStylesheet name="ipwa142.css"></h:outputStylesheet>
+    <!--<h:outputStylesheet library="css" name="ipwa142.css"></h:outputStylesheet>--> <!-- so soll es funktionieren
+    tut es aber nicht -->
+    <link rel="stylesheet" href="ipwa142.css"></link>
 </h:head>
 <h:body>
     <h:dataTable var="band" value="#{bands.bands}"
@@ -32,8 +34,8 @@
             <h:outputText value="#{band.drummer}"></h:outputText>
         </h:column>
         <h:column>
-            <f:facet name="header">Drummer</f:facet>
-            <h:graphicImage url="#{band.drummer}"></h:graphicImage>
+            <f:facet name="header">Bild</f:facet>
+            <h:graphicImage value="#{band.picUrl}"></h:graphicImage>
         </h:column>
     </h:dataTable>
 </h:body>

@@ -67,15 +67,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion" role="tablist" id="accordion-1">
+                                <div class="accordion" role="tablist" id="accordion-4">
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" role="tab"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">IPWA 1-4-1-1</button></h2>
-                                        <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                                        <h2 class="accordion-header" role="tab"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordion-4 .item-1" aria-expanded="true" aria-controls="accordion-4 .item-1">IPWA 1-4-1-1</button></h2>
+                                        <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-4">
                                             <div class="accordion-body">
                                                 <p class="mb-0"></p><a href="pages/ipwa1411.xhtml">IPWA 1-4-1: JSF erster eindruck</a>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="accordion" role="tablist" id="accordion-5">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" role="tab"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordion-5 .item-1" aria-expanded="true" aria-controls="accordion-5 .item-1">IPWA 1-4-2</button></h2>
+                                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-4">
+                                                <div class="accordion-body">
+                                                    <p class="mb-0"></p><a href="pages/ipwa142.xhtml">IPWA 1-4-2: JSF erster eindruck</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>

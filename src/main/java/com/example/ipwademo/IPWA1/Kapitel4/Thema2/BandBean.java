@@ -23,7 +23,7 @@ public class BandBean {
     private void initData() {
         this.bands = new ArrayList<BandMitBild>();
         for(Band band : IPWA133Data.getData()) {
-            this.addBandMitBild(this.migrateBand(band));
+            this.addBandMitBild(new BandMitBild(band));
         }
         this.bands.get(0).setPicUrl("https://www.rockhall.com/sites/default/files/styles/c03g_desktop_1920_870/public/2019-11/vanhalen_002.jpg?h=e3c4a1bd&itok=5jaqCOJm"); //Van halen
         this.bands.get(1).setPicUrl("https://townsquare.media/site/366/files/2021/08/attachment-judas-priest-2.jpeg"); //Judas Priest
@@ -32,21 +32,5 @@ public class BandBean {
 
     public void addBandMitBild(BandMitBild bandMitBild) {
         this.bands.add(bandMitBild);
-    }
-
-    private BandMitBild migrateBand(Band b) {
-        BandMitBild bandMitBild = new BandMitBild();
-        bandMitBild.setName(b.getName());
-        bandMitBild.setSaenger(b.getSaenger());
-        bandMitBild.setGitarrist(b.getGitarrist());
-        bandMitBild.setBassist(b.getBassist());
-        bandMitBild.setDrummer(b.getDrummer());
-        return bandMitBild;
-    }
-
-    private BandMitBild migrateBand(Band b, String picUrl) {
-        BandMitBild bandMitBild = this.migrateBand(b);
-        bandMitBild.setPicUrl(picUrl);
-        return bandMitBild;
     }
 }
