@@ -1,4 +1,4 @@
-package com.example.ipwademo.IPWA1.Kapitel5.Thema1;
+package com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared;
 
 
 public abstract class Character {
@@ -6,8 +6,6 @@ public abstract class Character {
     private String vorname;
     private String nachname;
     private String pictureUrl;
-
-
 
     private String description;
 
