@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>IPWA151</title>
+    <link rel="stylesheet" href="assetsipwa151/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assetsipwa151/css/styles.css"/>
+    <link rel="stylesheet" href="assetsipwa151/css/Team-Boxed.css"/>
+</head>
+
+<body>
+<div class="team-boxed">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">IPWA 1-5-1</h2>
+            <p class="text-center">Hier gehts hauptsaechlich um die Lebensdauer von Beans</p>
+            <p class="text-center">Von Links oben nach rechts unten: NoneScoped, Request Scoped, View Scoped, Session Scoped, Application Scoped</p>
+            <p class="text-center">None Scoped: Es wird nichts passieren, da nach der Request die Aenderungen sterben</p>
+            <p class="text-center">Request Scoped: Sobald du ein neues Request machst, gehen die alten aenderungen weg, denn mit was neuem endet die Lebensdauer des alten requests</p>
+            <p class="text-center">View Scoped: Bleibt so lange wie du den Tab hast.</p>
+            <p class="text-center">Session Scoped: Bleibt so lange erhalten wie die sitzung laeuft. Machst du nen anderen Browser oder incognito tab auf, bleibts.</p>
+            <p class="text-center">Application Scoped: Bleibt so lange bis der Server down ist</p>
+
+        </div>
+        <div class="row people">
+            <div class="col-md-6 col-lg-4 item">
+                <div class="box">
+                    <h:graphicImage class="rounded-circle" url="#{noCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{noCharacter.vorname}"/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{noCharacter.nachname}"/>
+                    <br></br>
+                    <h:outputText class="p description" value="#{noCharacter.description}"></h:outputText>
+                    <h:form>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{noCharacter.vorname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{noCharacter.nachname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{noCharacter.description}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{noCharacter.pictureUrl}"></h:inputText></div>
+                        <h:commandButton class="btn btn-primary" type="button"
+                                         value="Set"
+                        >
+                            <!-- value is nur das label vom button-->
+                            <!-- wenn nicht weiter angegeben ist ein Knopf in einer Form der submit button ... denk ich mal -->
+                        </h:commandButton>
+                    </h:form>                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 item">
+                <div class="box">
+                    <h:graphicImage class="rounded-circle" url="#{reqCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{reqCharacter.vorname}"/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{reqCharacter.nachname}"/>
+                    <br></br>
+                    <h:outputText class="p description" value="#{reqCharacter.description}"></h:outputText>
+                    <h:form>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{reqCharacter.vorname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{reqCharacter.nachname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{reqCharacter.description}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{reqCharacter.pictureUrl}"></h:inputText></div>
+                        <h:commandButton class="btn btn-primary"
+                                         value="Set"
+                        >
+                            <!-- value is nur das label vom button-->
+                            <!-- wenn nicht weiter angegeben ist ein Knopf in einer Form der submit button ... denk ich mal -->
+                        </h:commandButton>
+                    </h:form>                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 item">
+                <div class="box">
+                    <h:graphicImage class="rounded-circle" url="#{viewCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{viewCharacter.vorname}"/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{viewCharacter.nachname}"/>
+                    <br></br>
+                    <h:outputText class="p description" value="#{viewCharacter.description}"></h:outputText>
+                    <h:form>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{viewCharacter.vorname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{viewCharacter.nachname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{viewCharacter.description}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{viewCharacter.pictureUrl}"></h:inputText></div>
+                        <h:commandButton class="btn btn-primary"
+                                         value="Set"
+                        >
+                            <!-- value is nur das label vom button-->
+                            <!-- wenn nicht weiter angegeben ist ein Knopf in einer Form der submit button ... denk ich mal -->
+                        </h:commandButton>
+                    </h:form>                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 item">
+                <div class="box">
+                    <h:graphicImage class="rounded-circle" url="#{sessionCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{sessionCharacter.vorname}"/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{sessionCharacter.nachname}"/>
+                    <br></br>
+                    <h:outputText class="p description" value="#{sessionCharacter.description}"></h:outputText>
+                    <h:form>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.vorname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.nachname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.description}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.pictureUrl}"></h:inputText></div>
+                        <h:commandButton class="btn btn-primary"
+                                         value="Set"
+                        >
+                            <!-- value is nur das label vom button-->
+                            <!-- wenn nicht weiter angegeben ist ein Knopf in einer Form der submit button ... denk ich mal -->
+                        </h:commandButton>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 item">
+                <div class="box">
+                    <h:graphicImage class="rounded-circle" url="#{appCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{appCharacter.vorname}"/>
+                    <br></br>
+                    <h:outputText class="h3 name" value="#{appCharacter.nachname}"/>
+                    <br></br>
+                    <h:outputText class="p description" value="#{appCharacter.description}"></h:outputText>
+                    <h:form>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{appCharacter.vorname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{appCharacter.nachname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{appCharacter.description}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{appCharacter.pictureUrl}"></h:inputText></div>
+                        <h:commandButton class="btn btn-primary"
+                                value="Set"
+                        >
+                            <!-- value is nur das label vom button-->
+                            <!-- wenn nicht weiter angegeben ist ein Knopf in einer Form der submit button ... denk ich mal -->
+                        </h:commandButton>
+                    </h:form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assetsipwa151/bootstrap/js/bootstrap.min.js" type=""></script>
+</body>
+</html>

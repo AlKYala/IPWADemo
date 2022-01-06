@@ -1,0 +1,6 @@
+Die Idee hinter dieser Geschichte ist einfach nur zu zeigen, was der Scope der Daten ist.
+
+Dementsprechend: Wir erstellen eine abstrakte Klasse, wo fuer jeden Scope einfach geerbt wird, mit defaultwerten.
+
+Dann kann man nach gewissen Aktionen sich die Lebensdauer selber angucken
+
