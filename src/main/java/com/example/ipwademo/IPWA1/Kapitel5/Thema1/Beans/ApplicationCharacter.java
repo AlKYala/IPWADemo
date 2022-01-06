@@ -9,11 +9,11 @@ import com.example.ipwademo.IPWA1.Kapitel5.Thema1.Character;
 @ApplicationScoped
 public class ApplicationCharacter extends Character {
 
-    public ApplicationCharacter(String vorname, String nachname, String pictureUrl, String description) {
-        this.setVorname(vorname);
-        this.setNachname(nachname);
-        this.setPictureUrl(pictureUrl);
-        this.setDescription(description);
+    public ApplicationCharacter() {
+        this.setVorname("Kazuma");
+        this.setNachname("Kiryu");
+        this.setPictureUrl("https://cdn.mos.cms.futurecdn.net/N3ukr4EHcFAjmQLtcUrnQR-480-80.jpg");
+        this.setDescription("Ein 50 Jahre alter Japaner der jede Mafia in Asien mehrmals verkloppt hat.");
     }
 
 }
