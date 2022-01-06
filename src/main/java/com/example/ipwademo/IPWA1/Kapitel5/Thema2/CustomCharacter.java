@@ -8,4 +8,13 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 @ManagedBean(name = "character")
 public class CustomCharacter extends Character {
+    @Override
+    public CustomCharacter clone() {
+        CustomCharacter customCharacter = new CustomCharacter();
+        customCharacter.setVorname(this.getVorname());
+        customCharacter.setNachname(this.getNachname());
+        customCharacter.setDescription(this.getDescription());
+        customCharacter.setPictureUrl(this.getDescription());
+        return customCharacter;
+    }
 }

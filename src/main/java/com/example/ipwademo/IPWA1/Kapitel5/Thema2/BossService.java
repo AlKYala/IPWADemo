@@ -6,8 +6,6 @@ import com.example.ipwademo.IPWA1.Kapitel5.Thema2.Builders.CharacterException;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,16 +13,29 @@ import java.util.List;
 @ManagedBean
 public class BossService {
 
-    private List<Character> mitglieder;
+    private List<CustomCharacter> mitglieder;
     private static BossService instance;
+    //private int index;
 
     //falls ich sie mehr als 1x brauche
     private CharacterBuilder nishikiBuilder;
     private CharacterBuilder ryujiBuilder;
     private CharacterBuilder mineBuilder;
 
+    /*public int getIndex() {
+        return index;
+    }
+
+    public void incIndex() {
+        this.index = (index+1) % this.mitglieder.size();
+    }
+
+    public void decIndex() {
+        this.index = (index-1) % this.mitglieder.size();
+    }*/
+
     private BossService() {
-        this.mitglieder = new ArrayList<Character>();
+        this.mitglieder = new ArrayList<CustomCharacter>();
         this.initData();
     }
 
@@ -35,7 +46,7 @@ public class BossService {
         return BossService.instance;
     }
 
-    public List<Character> getMitglieder() {
+    public List<CustomCharacter> getMitglieder() {
         return this.mitglieder;
     }
 
@@ -85,7 +96,7 @@ public class BossService {
         this.nishikiBuilder.setVorname("Akira");
         this.nishikiBuilder.setNachname("Nishikiyama");
         this.nishikiBuilder.setDescription("Freund aus Kindertagen und Schwurbruder des Hauptcharkters. Opfert sein Leben fuer seinen Bruder.");
-        this.nishikiBuilder.setPicUrl("https://tenor.com/view/yakuza-yakuza-kiwami-nishiki-nishikiyama-gif-22470448");
+        this.nishikiBuilder.setPicUrl("https://c.tenor.com/x-1QWvoP_3IAAAAd/yakuza-yakuza-kiwami.gif");
     }
 
     private void initRyujiBuilder() {
@@ -101,7 +112,7 @@ public class BossService {
         this.mineBuilder.setVorname("Yoshitaka");
         this.mineBuilder.setNachname("Mine");
         this.mineBuilder.setDescription("Herro. No. There is change in the pran.");
-        this.mineBuilder.setPicUrl("https://tenor.com/view/yakuza-ryu-ga-gotoku-yakuza3-yoshitaka-mine-mine-gif-24035554");
+        this.mineBuilder.setPicUrl("https://c.tenor.com/tK41vnWrPM0AAAAd/yakuza-ryu-ga-gotoku.gif");
     }
 }
 
