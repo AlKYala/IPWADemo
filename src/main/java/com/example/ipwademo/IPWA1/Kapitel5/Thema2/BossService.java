@@ -4,12 +4,14 @@ import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
 import com.example.ipwademo.IPWA1.Kapitel5.Thema2.Builders.CharacterBuilder;
 import com.example.ipwademo.IPWA1.Kapitel5.Thema2.Builders.CharacterException;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 import java.util.List;
 
-@ViewScoped
+@ApplicationScoped
 @ManagedBean
 public class BossService {
 
@@ -26,14 +28,19 @@ public class BossService {
         this.initData();
     }
 
-    public BossService getInstance() {
+    public static BossService getInstance() {
         if(instance == null) {
             BossService.instance = new BossService();
         }
         return BossService.instance;
     }
 
+    public List<Character> getMitglieder() {
+        return this.mitglieder;
+    }
+
     private void initData() {
+        this.initBuilders();
         this.mitglieder.add(this.nishikiBuilder.getCharacter());
         this.mitglieder.add(this.ryujiBuilder.getCharacter());
         this.mitglieder.add(this.mineBuilder.getCharacter());
