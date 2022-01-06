@@ -17,6 +17,7 @@ public class BossController {
     private int index = 0;
 
     public CustomCharacter getCharacter() {
+        System.out.println(BossService.getInstance().getMitglieder());
         return BossService.getInstance().getMitglieder().get(this.index);
     }
 

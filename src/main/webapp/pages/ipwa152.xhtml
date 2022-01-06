@@ -54,17 +54,6 @@
     </div>
     <div class="container">
         <div class="text-center box">
-            <!--<h3 class="name">Erstelle deinen eigenen Charakter</h3>
-            <h3 class="name"></h3>
-            <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><input
-                    class="form-control" type="text"></div>
-            <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><input
-                    class="form-control" type="text"></div>
-            <div class="input-group" style="padding-bottom: 10px;"><span
-                    class="input-group-text">Beschreibung</span><input class="form-control" type="text"></div>
-            <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><input
-                    class="form-control" type="text"></div>
-            <button class="btn btn-primary" type="button">Senden</button>-->
             <h:form>
                 <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{submitBean.vorname}"></h:inputText></div>
                 <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{submitBean.nachname}"></h:inputText></div>
@@ -73,8 +62,6 @@
                 <h:commandButton class="btn btn-primary"
                                  value="Senden" action="#{submitBean.submit}"
                 >
-                    <!-- value is nur das label vom button-->
-                    <!-- wenn nicht weiter angegeben ist ein Knopf in einer Form der submit button ... denk ich mal -->
                 </h:commandButton>
             </h:form>
         </div>

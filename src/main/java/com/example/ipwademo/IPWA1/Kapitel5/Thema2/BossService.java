@@ -22,17 +22,6 @@ public class BossService {
     private CharacterBuilder ryujiBuilder;
     private CharacterBuilder mineBuilder;
 
-    /*public int getIndex() {
-        return index;
-    }
-
-    public void incIndex() {
-        this.index = (index+1) % this.mitglieder.size();
-    }
-
-    public void decIndex() {
-        this.index = (index-1) % this.mitglieder.size();
-    }*/
 
     private BossService() {
         this.mitglieder = new ArrayList<CustomCharacter>();
@@ -47,6 +36,7 @@ public class BossService {
     }
 
     public List<CustomCharacter> getMitglieder() {
+        System.out.println(this.mitglieder.toString());
         return this.mitglieder;
     }
 

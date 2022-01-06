@@ -14,7 +14,11 @@ public class CustomCharacter extends Character {
         customCharacter.setVorname(this.getVorname());
         customCharacter.setNachname(this.getNachname());
         customCharacter.setDescription(this.getDescription());
-        customCharacter.setPictureUrl(this.getDescription());
+        customCharacter.setPictureUrl(this.getPictureUrl());
         return customCharacter;
+    }
+
+    public String toString() {
+        return String.format("V: %s\nN: %s\nD: %s\nI: %s", this.getVorname(), this.getNachname(), this.getDescription(), this.getPictureUrl());
     }
 }
