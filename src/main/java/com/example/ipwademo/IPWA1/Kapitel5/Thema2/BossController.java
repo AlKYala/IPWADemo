@@ -14,27 +14,29 @@ View Scoped bewirkt in diesem Fall nur, dass du bei index 0 anfaengst
 @ViewScoped
 public class BossController {
 
-    private int index = 3;
+    private int index = 0;
 
     public CustomCharacter getCharacter() {
-        index %= BossService.getInstance().getMitglieder().size();
-        System.out.println(this.index);
-        System.out.println(BossService.getInstance().getMitglieder().size());
         return BossService.getInstance().getMitglieder().get(this.index);
     }
 
+    public int getIndex() {
+        return this.index;
+    }
+
     public void inc() {
-        index++;
-        System.out.println("inc");
+        index = (index+1) % BossService.getInstance().getMitglieder().size();
     }
 
     public void dec() {
-        index--;
-        System.out.println(this.index);
+        index = (index == 0) ? index = BossService.getInstance().getMitglieder().size()-1 : index-1; //modulo wollte nicht
+        System.out.println(index);
     }
 
     public void remove() {
+
         BossService.getInstance().remove(this.index);
+        this.dec();
     }
 
     public void duplicate() {

@@ -18,9 +18,12 @@
         <div class="col d-inline-flex d-sm-flex justify-content-sm-center">
             <div class="btn-group">
                 <h:form>
-                    <h:commandButton class="btn btn-primary" value="Zurueck" action="#{bossController.dec()}"/>
+                    <h:commandButton class="btn btn-primary" value="Zurueck"
+                                     action="#{bossController.dec()}"/> <!-- rendered="#{bossController.index > 0}" denkbar-->
                     <h:commandButton class="btn btn-secondary" value="Instanz Duplizieren" action="#{bossController.duplicate()}"/>
+
                     <h:commandButton class="btn btn-danger" value="Instanz Entfernen" action="#{bossController.remove()}"/>
+
                     <h:commandButton class="btn btn-primary" value="Vor" action="#{bossController.inc()}"/>
                 </h:form>
             </div>
@@ -46,6 +49,7 @@
             <tr></tr>
             </tbody>
         </table>
+
     </div>
 </div>
 <script src="assetsipwa151/bootstrap/js/bootstrap.min.js" type=""></script>
