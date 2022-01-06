@@ -2,7 +2,7 @@ package com.example.ipwademo.IPWA1.Kapitel5.Thema1.Beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import com.example.ipwademo.IPWA1.Kapitel5.Thema1.Character;
+import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
 
 
 @RequestScoped

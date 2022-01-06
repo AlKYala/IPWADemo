@@ -3,7 +3,7 @@ package com.example.ipwademo.IPWA1.Kapitel5.Thema1.Beans;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import com.example.ipwademo.IPWA1.Kapitel5.Thema1.Character;
+import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
 
 @ManagedBean(name = "appCharacter")
 @ApplicationScoped
