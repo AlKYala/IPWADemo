@@ -15,7 +15,6 @@
     <body>
         <h1>
             ${data}
-
         </h1>
         <h3>Name der Band:</h3>
         <input type="text" id="nameBand" name="name">

@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
     <title>IPWA151</title>
     <link rel="stylesheet" href="assetsipwa151/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assetsipwa151/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assetsipwa151/css/styles.css"/>
     <link rel="stylesheet" href="assetsipwa151/css/Team-Boxed.css"/>
 </head>
@@ -17,16 +18,15 @@
 <body>
 <div class="team-boxed">
     <div class="container">
-        <div class="intro">
+        <div class="intro" style="width: 700px;">
             <h2 class="text-center">IPWA 1-5-1</h2>
-            <p class="text-center">Hier gehts hauptsaechlich um die Lebensdauer von Beans</p>
-            <p class="text-center">Von Links oben nach rechts unten: NoneScoped, Request Scoped, View Scoped, Session Scoped, Application Scoped</p>
-            <p class="text-center">None Scoped: Es wird nichts passieren, da nach der Request die Aenderungen sterben</p>
-            <p class="text-center">Request Scoped: Sobald du ein neues Request machst, gehen die alten aenderungen weg, denn mit was neuem endet die Lebensdauer des alten requests</p>
-            <p class="text-center">View Scoped: Bleibt so lange wie du den Tab hast.</p>
-            <p class="text-center">Session Scoped: Bleibt so lange erhalten wie die sitzung laeuft. Machst du nen anderen Browser oder incognito tab auf, bleibts.</p>
-            <p class="text-center">Application Scoped: Bleibt so lange bis der Server down ist</p>
-
+            <p class="text-center" style="margin-bottom: 5px;">Hier gehts hauptsaechlich um die Lebensdauer von Beans</p>
+            <p class="text-center" style="margin-bottom: 5px;">Von Links oben nach rechts unten: NoneScoped, Request Scoped, View Scoped, Session Scoped, Application Scoped</p>
+            <p class="text-center" style="margin-bottom: 5px;"><span><strong>None Scoped:&nbsp;</strong></span>Es wird nichts passieren, da nach der Request die Aenderungen sterben</p>
+            <p class="text-center" style="margin-bottom: 5px;"><span><strong>Request Scoped:&nbsp;</strong></span>Sobald du ein neues Request machst, gehen die alten aenderungen weg. (Lebensdauer des Req. endet)</p>
+            <p class="text-center d-xxl-flex justify-content-xxl-center" style="margin-bottom: 5px;"><span><strong>View Scoped:&nbsp;</strong></span>Bleibt so lange wie du den Tab hast.</p>
+            <p class="text-center d-xxl-flex justify-content-xxl-center" style="margin-bottom: 5px;"><span><strong>Session Scoped:&nbsp;</strong></span>Neue Sitzung durch neuen Browser/Incognito Tab</p>
+            <p class="text-center d-xxl-flex justify-content-xxl-center" style="margin-bottom: 5px;"><span><strong>Application Scoped:</strong>&nbsp;</span>Bleibt so lange bis der Server down ist</p>
         </div>
         <div class="row people">
             <div class="col-md-6 col-lg-4 item">
