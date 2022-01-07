@@ -20,6 +20,7 @@
                         : request.getParameter("name1");
                 out.print(name1); //fuer out musste man noch eine dependency importen, siehe: javax.servlet.jsp mit jsp-api artifact
             %></h1>
+    <a href="index.jsp">Home</a>
     </body>
 
 </html>

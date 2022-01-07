@@ -27,6 +27,7 @@
         <h3>Name des Drummers:</h3>
         <input type="text" id="drummer" name="name">
         <button id="knopf">submit</button>
+        <a href="index.jsp">Home</a>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script>
             /*$( "#knopf" ).on("click" , function() {
