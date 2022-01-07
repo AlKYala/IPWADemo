@@ -91,10 +91,10 @@ public class BossService {
 
     private void initRyujiBuilder() {
         this.ryujiBuilder = new CharacterBuilder();
-        this.ryujiBuilder.setVorname("Goda");
-        this.ryujiBuilder.setNachname("Ryuji");
+        this.ryujiBuilder.setVorname("Ryuji");
+        this.ryujiBuilder.setNachname("Goda");
         this.ryujiBuilder.setDescription("Gebräunter blonder Japaner. Wollte dem Hauptcharakter aufs Maul hauen, einfach nur darum.");
-        this.ryujiBuilder.setPicUrl("https://i.imgur.com/V5YECGD.gif");
+        this.ryujiBuilder.setPicUrl("https://c.tenor.com/WgGWbzk9t3AAAAAC/yakuza-ryuji-goda.gif");
     }
 
     private void initMineBuilder() {
@@ -102,7 +102,7 @@ public class BossService {
         this.mineBuilder.setVorname("Yoshitaka");
         this.mineBuilder.setNachname("Mine");
         this.mineBuilder.setDescription("Herro. No. There is change in the pran.");
-        this.mineBuilder.setPicUrl("https://c.tenor.com/tK41vnWrPM0AAAAd/yakuza-ryu-ga-gotoku.gif");
+        this.mineBuilder.setPicUrl("https://c.tenor.com/G9gz-n8Vjp8AAAAC/yakuza-ryu-ga-gotoku.gif");
     }
 }
 

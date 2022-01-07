@@ -12,61 +12,78 @@
     <link rel="stylesheet" href="../assets/css/styles.css"/>
 </head>
 
-<body>
-<div class="container" style="margin-top: 100px;">
-    <div class="row">
-        <div class="col d-inline-flex d-sm-flex justify-content-sm-center">
-            <div class="btn-group">
-                <h:form>
-                    <h:commandButton class="btn btn-primary" value="Zurueck"
-                                     action="#{bossController.dec()}"/> <!-- rendered="#{bossController.index > 0}" denkbar-->
-                    <h:commandButton class="btn btn-secondary" value="Instanz Duplizieren"
-                                     action="#{bossController.duplicate()}"/>
 
-                    <h:commandButton class="btn btn-danger" value="Instanz Entfernen"
-                                     action="#{bossController.remove()}"/>
-
-                    <h:commandButton class="btn btn-primary" value="Vor" action="#{bossController.inc()}"/>
-                </h:form>
+<body id="page-top" style="background: var(--bs-gray-100);">
+<div id="wrapper">
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content" style="margin-bottom: 15px;">
+            <div class="container-fluid" style="margin-top: 10px;">
+                <div class="col-md-12" style="margin-bottom: 10px;">
+                    <h4 class="text-dark mb-0">IPWA1: 5-2 Unified Expression Language</h4>
+                    <p>In diesem Kapitel wird einfach nochmal näher auf das eingegangen, was bereits bekannt sein sollte. Wirklich interessant in diesem Konzept ist eigentlich das Konzept des Controllers, welches Nutzereingaben abfängt und im Backend verarbeitet.<br></br></p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Vorname</th>
-                <th>Nachname</th>
-                <th>Beschreibung</th>
-                <th>Bild</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>#{bossController.character.vorname}</td>
-                <td>#{bossController.character.nachname}</td>
-                <td>#{bossController.character.description}</td>
-                <td><h:graphicImage url="#{bossController.character.pictureUrl}" width="100px" height="100px"/></td>
-            </tr>
-            <tr></tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="container">
-        <div class="text-center box">
-            <h:form>
-                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{submitBean.vorname}"></h:inputText></div>
-                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{submitBean.nachname}"></h:inputText></div>
-                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{submitBean.description}"></h:inputText></div>
-                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{submitBean.pictureUrl}"></h:inputText></div>
-                <h:commandButton class="btn btn-primary"
-                                 value="Senden" action="#{submitBean.submit}"
-                >
-                </h:commandButton>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="margin-bottom: 12px;">
+            <div class="card"><h:form>
+                <div class="card-header" style="padding-bottom: 0px;padding-top: 10px;">
+                    <div class="row justify-content-between">
+
+                        <div class="col"><h:commandButton class="btn btn-primary" value="Zurueck" action="#{bossController.dec()}"/></div>
+                        <div class="col text-center"><h:commandButton class="btn btn-info" value="Instanz Duplizieren" action="#{bossController.duplicate()}"/></div>
+                        <div class="col text-center"><h:commandButton class="btn btn-danger" value="Instanz Loeschen" action="#{bossController.remove()}"/></div>
+                        <div class="col text-end"><h:commandButton class="btn btn-primary" value="Vor" action="#{bossController.inc()}"/></div>
+
+                    </div>
+                </div>
             </h:form>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-2 col-xl-2">
+                                <h4>Vorname</h4>
+                                <p>#{bossController.character.vorname}</p>                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2">
+                                <h4>Nachname</h4>
+                                <p>#{bossController.character.nachname}</p>                            </div>
+                            <div class="col-md-6 col-lg-3 col-xl-4">
+                                <h4>Beschreibung</h4>
+                                <p>#{bossController.character.description}</p>
+                            </div>
+                            <div class="col-md-3 col-lg-2 offset-md-3 offset-lg-0"><h:graphicImage style="max-width: 100%; height: 100%;" url="#{bossController.character.pictureUrl}"/></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-12 offset-xxl-0" style="margin-bottom: 10px;margin-top: 10px;">
+            <div class="card"></div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Erstell deinen eigenen Charakter</h4>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <h:form>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{submitBean.vorname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{submitBean.nachname}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{submitBean.description}"></h:inputText></div>
+                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{submitBean.pictureUrl}"></h:inputText></div>
+                        <h:commandButton class="btn btn-primary"
+                                         value="Senden" action="#{submitBean.submit}"
+                        >
+                        </h:commandButton>
+                    </h:form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<script src="../assets/bootstrap/js/bootstrap.min.js" type=""></script>
+<script src="assets/bootstrap/js/bootstrap.min.js" type=""></script>
+<script src="assets/js/theme.js" type=""></script>
 </body>
+
 </html>
