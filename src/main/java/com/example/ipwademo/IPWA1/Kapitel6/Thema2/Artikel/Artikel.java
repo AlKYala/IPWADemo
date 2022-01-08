@@ -18,7 +18,7 @@ public class Artikel {
 
     public Artikel() {};
 
-    public Artikel(int nr, String name, String text, String bild, Date verfuegbarAb, int preisEuro, int preisCent) {
+    public Artikel(int id, String name, String text, String bild, Date verfuegbarAb, int preisEuro, int preisCent) {
         this.setId(id);
         this.setName(name);
         this.setText(text);

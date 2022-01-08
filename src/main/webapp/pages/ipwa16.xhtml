@@ -27,7 +27,6 @@
                 <f:facet name="options">
                     <p:button value="Home" icon="pi pi-fw pi-home" styleClass="ui-button-info"/>
                 </f:facet>
-
             </p:menubar>
         </h:form>
     </div>
@@ -46,6 +45,11 @@
             </p:column>
             <p:column headerText="Preis">
                 <h:outputText value="#{artikel.formattedPrice}" />
+            </p:column>
+            <p:column>
+                <p:inputNumber value="#{warenkorb.tempAnzahl}"></p:inputNumber>
+                <p:commandButton    action="#{warenkorb.addArtikel(artikel)}"
+                                 value="Home" icon="pi pi-fw pi-home" styleClass="ui-button-info"/>
             </p:column>
         </p:dataTable>
     </h:form>

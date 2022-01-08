@@ -8,8 +8,8 @@ public class WarenkorbItem {
     public WarenkorbItem() {}
 
     public WarenkorbItem(Artikel artikel, int anzahl) {
-        this.setAnzahl(anzahl);
-
+        this.setArtikel(artikel);
+        this.anzahl = anzahl;
     }
 
     public Artikel getArtikel() {
@@ -26,5 +26,9 @@ public class WarenkorbItem {
 
     public void setAnzahl(int anzahl) {
         this.anzahl = anzahl;
+    }
+
+    public String toString() {
+        return String.format("%s: %d", this.artikel.getName(), this.anzahl);
     }
 }
