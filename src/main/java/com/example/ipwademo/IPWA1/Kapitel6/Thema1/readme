@@ -6,3 +6,11 @@ was du suchst und da rein importieren.
 z.B:
 
 https://mvnrepository.com/artifact/org.primefaces/primefaces
+
+
+Ausserdem hat primefaces nicht funktioniert, also hab ich bootfaces genutzt.
+Es geht ja im Endeffekt darum, dass du eine third-party dependency installierst und davon gebrauch machst.
+
+Ich wuerde auch bootsfaces empfehlen. (und ggf. haette ich die ganze gestaltung im Projekt mit bootsfaces gemacht)
+
+https://mvnrepository.com/artifact/net.bootsfaces/bootsfaces/1.5.0

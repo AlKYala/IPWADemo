@@ -10,10 +10,10 @@ import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
 public class ApplicationCharacter extends Character {
 
     public ApplicationCharacter() {
-        this.setVorname("Kazuma");
-        this.setNachname("Kiryu");
-        this.setPictureUrl("https://cdn.mos.cms.futurecdn.net/N3ukr4EHcFAjmQLtcUrnQR-480-80.jpg");
-        this.setDescription("Ein 50 Jahre alter Japaner der jede Mafia in Asien mehrmals verkloppt hat.");
+    }
+
+    public ApplicationCharacter(String vorname, String nachname, String description, String pictureUrl) {
+        super(vorname, nachname, description, pictureUrl);
     }
 
 }

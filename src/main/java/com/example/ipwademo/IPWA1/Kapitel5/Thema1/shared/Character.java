@@ -11,6 +11,15 @@ public abstract class Character implements Serializable {
 
     private String description;
 
+    public Character() {}
+
+    public Character(String vorname, String nachname, String description, String pictureUrl) {
+        this.setVorname(vorname);
+        this.setNachname(nachname);
+        this.setDescription(description);
+        this.setPictureUrl(pictureUrl);
+    }
+
     public String getVorname() {
         return vorname;
     }
