@@ -86,6 +86,14 @@ public class Artikel {
 
     public void setPreisCent(int preisCent) {
         int euros = preisCent % 100;
+        this.preisEuro += euros;
         this.preisCent = (preisCent - (euros * 100));
+    }
+
+    public String getFormattedPrice() {
+        String cents = (this.getPreisCent() < 10)
+                ? String.format("0%d", this.getPreisCent())
+                : Integer.toString(this.getPreisCent());
+        return String.format("%d.%s€", this.getPreisEuro(), cents);
     }
 }
