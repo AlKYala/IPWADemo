@@ -8,7 +8,7 @@ import java.util.Date;
 @ManagedBean
 public class Artikel {
 
-    private int nr;
+    private int id;
     private String name;
     private String text;
     private String bild;
@@ -19,7 +19,7 @@ public class Artikel {
     public Artikel() {};
 
     public Artikel(int nr, String name, String text, String bild, Date verfuegbarAb, int preisEuro, int preisCent) {
-        this.setNr(nr);
+        this.setId(id);
         this.setName(name);
         this.setText(text);
         this.setBild(bild);
@@ -28,16 +28,16 @@ public class Artikel {
         this.setPreisCent(preisCent);
     }
 
-    public Artikel(int nr, String name, String text, String bild, int preisEuro, int preisCent) {
-        this(nr, name, text, bild, new Date(), preisEuro, preisCent);
+    public Artikel(int id, String name, String text, String bild, int preisEuro, int preisCent) {
+        this(id, name, text, bild, new Date(), preisEuro, preisCent);
     }
 
-    public int getNr() {
-        return nr;
+    public int getId() {
+        return id;
     }
 
-    public void setNr(int nr) {
-        this.nr = nr;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
