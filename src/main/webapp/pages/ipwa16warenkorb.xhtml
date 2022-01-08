@@ -3,7 +3,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
-        xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui">
 <h:head>
 </h:head>
 
@@ -34,7 +34,7 @@
     </div>
     <!-- navbar -->
     <h:form id="form">
-        <p:dataTable id="products" var="artikel" value="#{shop.artikelList}" rowKey="#{artikel.id}">
+        <p:dataTable id="products" var="artikel" value="#{warenkorb.artikelList}" rowKey="#{artikel.id}">
 
             <p:column headerText="Bild">
                 <p:graphicImage style="max-height: 180px; max-width: 300px;" url="#{artikel.bild}"/>
@@ -50,20 +50,8 @@
             </p:column>
             <p:column>
 
-                <p:selectOneMenu value="#{artikel.foo}">
-                    <f:selectItem itemLabel="1" itemValue="1" />
-                    <f:selectItem itemLabel="2" itemValue="2" />
-                    <f:selectItem itemLabel="3" itemValue="3" />
-                    <f:selectItem itemLabel="4" itemValue="4" />
-                    <f:selectItem itemLabel="5" itemValue="5" />
-                    <f:selectItem itemLabel="6" itemValue="6" />
-                    <f:selectItem itemLabel="7" itemValue="7" />
-                    <f:selectItem itemLabel="8" itemValue="8" />
-                    <f:selectItem itemLabel="9" itemValue="9" />
-                </p:selectOneMenu>
-
                 <p:commandButton    action="#{warenkorb.addArtikel(artikel)}"
-                                 value="Add to Cart" icon="pi pi-fw pi-home" styleClass="ui-button-info"/>
+                                    value="Add to Cart" icon="pi pi-fw pi-home" styleClass="ui-button-info"/>
             </p:column>
         </p:dataTable>
     </h:form>

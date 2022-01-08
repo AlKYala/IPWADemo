@@ -3,14 +3,15 @@ package com.example.ipwademo.IPWA1.Kapitel6.Thema2.Artikel;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @SessionScoped
 @ManagedBean(name = "warenkorb")
 public class WarenkorbController {
 
     private Map<Integer, Artikel> warenkorbItemMap;
+
+    private List<Artikel> warenKorbList;
 
     //needed
     private Map<Integer, Integer> anzahlen;
@@ -58,5 +59,13 @@ public class WarenkorbController {
         }
         this.anzahlen.put(artikel.getId(), artikel.getAnzahl());
         this.warenkorbItemMap.put(artikel.getId(), artikel);
+    }
+
+    public List<Artikel> getWarenKorbList() {
+        return new ArrayList<Artikel>(this.warenkorbItemMap.values());
+    }
+
+    public void setWarenKorbList(List<Artikel> warenKorbList) {
+        this.warenKorbList = warenKorbList;
     }
 }
