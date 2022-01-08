@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
@@ -160,6 +161,34 @@
                             </div>
                         </div>
                     </div>
+                    <!-- DO NOT USE - Objects inherit containers Scope - See BeansContainer.java why!!!
+                    <c:forEach var="item" items="#{beansContainer.characterList}">
+                        <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                            <div class="card">
+                                <h:graphicImage class="card-img-top w-100 d-block"
+                                                url="#{item.pictureUrl}"
+                                                width="450px" height="250px" alt=""/>
+                                <div class="card-body">
+
+                                    <h4 class="card-title">#{item.nachname}, #{item.vorname}</h4>
+                                    <h5 class="card-title">APPLICATION SCOPED</h5>
+                                    <p class="card-text">#{item.description}</p>
+                                    <h:form>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{item.vorname}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{item.nachname}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{item.description}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{item.pictureUrl}"></h:inputText></div>
+                                        <h:commandButton class="btn btn-primary"
+                                                         value="Set"
+                                        >
+
+                                        </h:commandButton>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach> -->
                     <div class="w-100"></div>
                 </div>
                 <div class="row justify-content-between">

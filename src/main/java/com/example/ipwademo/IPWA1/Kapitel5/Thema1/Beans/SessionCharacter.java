@@ -10,7 +10,12 @@ import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Charakter;
 @SessionScoped
 public class SessionCharacter extends Charakter {
 
-    public SessionCharacter() {}
+    public SessionCharacter() {
+        this.setVorname("Monki");
+        this.setNachname("Flip");
+        this.setDescription("OH OH AH AH");
+        this.setPictureUrl("https://c.tenor.com/7kzP_bmlzccAAAAM/monkiflip-monki.gif");
+    }
 
     public SessionCharacter(String vorname, String nachname, String description, String pictureUrl) {
         super(vorname, nachname, description, pictureUrl);
