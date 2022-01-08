@@ -2,12 +2,12 @@ package com.example.ipwademo.IPWA1.Kapitel5.Thema1.Beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
+import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Charakter;
 
 
 @RequestScoped
 @ManagedBean(name = "reqCharacter")
-public class RequestCharacter extends Character {
+public class RequestCharacter extends Charakter {
 
     public RequestCharacter() {}
 

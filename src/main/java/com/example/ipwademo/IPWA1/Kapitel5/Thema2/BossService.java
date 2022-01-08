@@ -1,6 +1,5 @@
 package com.example.ipwademo.IPWA1.Kapitel5.Thema2;
 
-import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
 import com.example.ipwademo.IPWA1.Kapitel5.Thema2.Builders.CharacterBuilder;
 import com.example.ipwademo.IPWA1.Kapitel5.Thema2.Builders.CharacterException;
 

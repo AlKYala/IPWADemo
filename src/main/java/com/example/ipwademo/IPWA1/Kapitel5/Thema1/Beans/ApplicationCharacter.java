@@ -3,11 +3,11 @@ package com.example.ipwademo.IPWA1.Kapitel5.Thema1.Beans;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
+import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Charakter;
 
 @ManagedBean(name = "appCharacter")
 @ApplicationScoped
-public class ApplicationCharacter extends Character {
+public class ApplicationCharacter extends Charakter {
 
     public ApplicationCharacter() {
     }

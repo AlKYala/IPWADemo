@@ -3,12 +3,12 @@ package com.example.ipwademo.IPWA1.Kapitel5.Thema1.Beans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
+import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Charakter;
 
 
 @ManagedBean
 @SessionScoped
-public class SessionCharacter extends Character {
+public class SessionCharacter extends Charakter {
 
     public SessionCharacter() {}
 

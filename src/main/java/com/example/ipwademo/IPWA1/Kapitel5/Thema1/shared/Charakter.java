@@ -3,7 +3,7 @@ package com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared;
 
 import java.io.Serializable;
 
-public abstract class Character implements Serializable {
+public abstract class Charakter implements Serializable {
 
     private String vorname;
     private String nachname;
@@ -11,9 +11,9 @@ public abstract class Character implements Serializable {
 
     private String description;
 
-    public Character() {}
+    public Charakter() {}
 
-    public Character(String vorname, String nachname, String description, String pictureUrl) {
+    public Charakter(String vorname, String nachname, String description, String pictureUrl) {
         this.setVorname(vorname);
         this.setNachname(nachname);
         this.setDescription(description);
