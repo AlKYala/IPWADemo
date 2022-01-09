@@ -1,0 +1,163 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+</h:head>
+
+<h:body>
+    <div class="card">
+        <!-- navbar -->
+        <h:form>
+            <p:growl id="messagesNavbar"/>
+            <p:menubar>
+                <p:menuitem value="Artikel Erstellen" icon="pi pi-fw pi-plus"
+                            onclick="PF('artikelErstellen').show();"/>
+
+                <f:facet name="options">
+                    <p:commandButton value="Einkaufswagen" icon="pi pi-fw pi-shopping-cart"
+                                     type="button" onclick="PF('warenkorbModal').show();"/>
+                </f:facet>
+            </p:menubar>
+        </h:form>
+    </div>
+
+    <!-- Modal Warenkorb-->
+    <p:dialog header="Warenkorb" widgetVar="warenkorbModal" modal="true"
+              style="max-width: 70%; margin-bottom: 200px; margin-top: 200px;">
+        <h:form id="warenKorbForm">
+            <p:messages id="messageModal" showDetail="true" closable="true" rendered="#{warenkorb.showMessageInCart}">
+                <p:autoUpdate/>
+            </p:messages>
+            <p:dataTable id="warenkorbProdukte" var="artikel" value="#{warenkorb.warenKorbList}" rowKey="#{artikel.id}">
+                <p:column headerText="Bild">
+                    <p:graphicImage style="max-height: 72px; max-width: 120px;" url="#{artikel.bild}"/>
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{artikel.name}"/>
+                </p:column>
+                <p:column headerText="Text">
+                    <h:outputText value="#{artikel.text}"/>
+                </p:column>
+                <p:column headerText="Preis">
+                    <h:outputText value="#{artikel.warenkorbPrice}"/>
+                </p:column>
+                <p:column>
+
+                    <p:selectOneMenu value="#{artikel.foo}" onchange="k">
+                        <f:selectItem itemLabel="0 (Löschen)" itemValue="0"/>
+                        <f:selectItem itemLabel="1" itemValue="1"/>
+                        <f:selectItem itemLabel="2" itemValue="2"/>
+                        <f:selectItem itemLabel="3" itemValue="3"/>
+                        <f:selectItem itemLabel="4" itemValue="4"/>
+                        <f:selectItem itemLabel="5" itemValue="5"/>
+                        <f:selectItem itemLabel="6" itemValue="6"/>
+                        <f:selectItem itemLabel="7" itemValue="7"/>
+                        <f:selectItem itemLabel="8" itemValue="8"/>
+                        <f:selectItem itemLabel="9" itemValue="9"/>
+                    </p:selectOneMenu>
+
+                    <p:commandButton action="#{warenkorb.changeAnzahl(artikel)}"
+                                     value="Ändern" styleClass="ui-button-warning"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </p:dialog>
+    <!-- Modal Warenkorb end-->
+
+
+    <!-- Modal add -->
+
+    <p:dialog header="Artikel erstellen" widgetVar="artikelErstellen" modal="true"
+              style="max-width: 70%; margin-bottom: 200px; margin-top: 200px;">
+        <h:form id="artikelErstellenForm">
+            <div class="card">
+                <h5>Advanced</h5>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-6">
+                        <p:outputLabel value="Name"/>
+                        <p:inputText value="#{artikelBean.name}"/>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <p:outputLabel value="Beschreibung"/>
+                        <p:inputTextarea value="#{artikelBean.text}" rows="4"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <p:outputLabel value="bildUrl"/>
+                        <p:inputText value="#{artikelBean.bild}"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel value="Verfuegbar ab"/>
+                        <p:calendar value="#{artikelBean.verfuegbarAb}"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel value="Euros"/>
+                        <p:inputText value="#{artikelBean.euroString}"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel value="Cent"/>
+                        <p:inputText value="#{artikelBean.centString}"/>
+                    </div>
+                    <p:commandButton action="#{warenkorb.allowCreateMessageShow()}"
+                                     value="Add to Cart" icon="pi pi-fw pi-plus" styleClass="ui-button-info">
+                        <f:actionListener binding="#{shop.addArtikel(artikelBean.asArtikel)}" />
+                        <f:actionListener binding="#{shop.giveArtikelCreatedInfo(artikelBean.asArtikel)}" />
+                    </p:commandButton>
+
+                </div>
+            </div>
+        </h:form>
+    </p:dialog>
+    <!-- navbar end-->
+
+    <h:form id="form">
+        <p:messages id="messagesList" showDetail="true" closable="true" rendered="#{warenkorb.showMessageInList}">
+            <p:autoUpdate/>
+        </p:messages>
+        <p:dataTable id="products" var="artikel" value="#{shop.artikelList}" rowKey="#{artikel.id}"
+                     rows="10"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} von {totalRecords} Artikel"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+            <!--<p:ajax event="mousemove" update="warenKorbForm" listener="#{warenkorb.dummyMethodForListener}"/>-->
+
+            <p:column headerText="Bild">
+                <p:graphicImage style="max-height: 180px; max-width: 300px;" url="#{artikel.bild}"/>
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{artikel.name}"/>
+            </p:column>
+            <p:column headerText="Text">
+                <h:outputText value="#{artikel.text}"/>
+            </p:column>
+            <p:column headerText="Preis">
+                <h:outputText value="#{artikel.formattedPrice}"/>
+            </p:column>
+            <p:column>
+
+                <p:selectOneMenu value="#{artikel.foo}">
+                    <f:selectItem itemLabel="1" itemValue="1"/>
+                    <f:selectItem itemLabel="2" itemValue="2"/>
+                    <f:selectItem itemLabel="3" itemValue="3"/>
+                    <f:selectItem itemLabel="4" itemValue="4"/>
+                    <f:selectItem itemLabel="5" itemValue="5"/>
+                    <f:selectItem itemLabel="6" itemValue="6"/>
+                    <f:selectItem itemLabel="7" itemValue="7"/>
+                    <f:selectItem itemLabel="8" itemValue="8"/>
+                    <f:selectItem itemLabel="9" itemValue="9"/>
+                </p:selectOneMenu>
+
+                <p:commandButton action="#{warenkorb.addArtikelView(artikel)}"
+                                 value="Add to Cart" icon="pi pi-fw pi-home" styleClass="ui-button-info"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</h:body>
+</html>
+
+        <!--TODO: Toastr -->

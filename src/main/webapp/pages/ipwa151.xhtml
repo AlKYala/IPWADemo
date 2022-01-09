@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>IPWA151</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
+    <link rel="stylesheet" href="../assets/css/Team-Boxed.css"/>
+    <link rel="stylesheet" href="../assets/css/Team-Boxed.css"/>
+</head>
+
+<body id="page-top" style="background: var(--bs-gray-100);">
+<div id="wrapper">
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <div class="container-fluid" style="margin-top: 10px;">
+                <div class="col-md-12" style="margin-bottom: 10px;">
+                    <h4 class="text-dark mb-0">IPWA1: 5-1 Java Beans</h4>
+                    <p>Es geht in diesem Kapitel hauptsaechlich darum, die Lebensdauer von den einzelnen Beans darzustellen.&nbsp;<br></br></p>
+                    <p>An dieser Stelle eine kurze Erklärung zu den verhaltensweisen der Beans:<br></br></p>
+                    <p><strong>None Scoped:&nbsp;</strong>Es wird nichts passieren, da nach der Request die Aenderungen sterben<br></br></p>
+                    <p><strong>Request Scoped:&nbsp;</strong>Sobald du ein neues Request machst, gehen die alten aenderungen weg, da damit die Lebensdauer des alten Requests endet (anderer Req. startet)<br></br></p>
+                    <p><strong>View Scoped:&nbsp;</strong>Bleibt so lange wie du den Tab hast. Dementsprechend uebertragen sich die Aenderungen nicht auf andere Tabs<br></br></p>
+                    <p><strong>Session Scoped:&nbsp;</strong>Aenderungen bleiben Tabuebergreifend,&nbsp; da selbe Session. Neue Sessions werden z.B. durch einen anderen Browser / Incognito Tab erzeugt.<br></br></p>
+                    <p><strong>Application Scoped:&nbsp;</strong>Aenderungen sind serverseitig - solange der Server nicht down geht, bleiben die Änderungen.<br></br></p>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    <div class="w-100"></div>
+                    <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                        <div class="card">
+                            <h:graphicImage class="card-img-top w-100 d-block"
+                                            url="#{noCharacter.pictureUrl}"
+                                            width="450px" height="250px" alt=""/>
+                            <div class="card-body">
+
+                                <h4 class="card-title">#{noCharacter.vorname}, #{noCharacter.nachname}</h4>
+                                <h5 class="card-title">NONE SCOPED</h5>
+                                <p class="card-text">#{noCharacter.description}</p>
+                                <h:form>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{noCharacter.vorname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{noCharacter.nachname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{noCharacter.description}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{noCharacter.pictureUrl}"></h:inputText></div>
+                                    <h:commandButton class="btn btn-primary"
+                                                     value="Set"
+                                    >
+
+                                    </h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                    <div class="card">
+                        <h:graphicImage class="card-img-top w-100 d-block"
+                                        url="#{reqCharacter.pictureUrl}"
+                                        width="450px" height="250px" alt=""/>
+                        <div class="card-body">
+
+                                <h4 class="card-title">#{reqCharacter.vorname}, #{reqCharacter.nachname}</h4>
+                                <h5 class="card-title">REQUEST SCOPED</h5>
+                                <p class="card-text">#{reqCharacter.description}</p>
+                            <h:form>
+                                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{reqCharacter.vorname}"></h:inputText></div>
+                                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{reqCharacter.nachname}"></h:inputText></div>
+                                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{reqCharacter.description}"></h:inputText></div>
+                                <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{reqCharacter.pictureUrl}"></h:inputText></div>
+                                <h:commandButton class="btn btn-primary"
+                                                 value="Set"
+                                >
+
+                                </h:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                        <div class="card">
+                            <h:graphicImage class="card-img-top w-100 d-block"
+                                            url="#{viewCharacter.pictureUrl}"
+                                            width="450px" height="250px" alt=""/>
+                            <div class="card-body">
+
+                                <h4 class="card-title">#{viewCharacter.nachname}, #{viewCharacter.vorname}</h4>
+                                <h5 class="card-title">VIEW SCOPED</h5>
+                                <p class="card-text">#{viewCharacter.description}</p>
+                                <h:form>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{viewCharacter.vorname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{viewCharacter.nachname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{viewCharacter.description}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{viewCharacter.pictureUrl}"></h:inputText></div>
+                                    <h:commandButton class="btn btn-primary"
+                                                     value="Set"
+                                    >
+
+                                    </h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                        <div class="card">
+                            <h:graphicImage class="card-img-top w-100 d-block"
+                                            url="#{sessionCharacter.pictureUrl}"
+                                            width="450px" height="250px" alt=""/>
+                            <div class="card-body">
+
+                                <h4 class="card-title">#{sessionCharacter.vorname}, #{sessionCharacter.nachname}</h4>
+                                <h5 class="card-title">REQUEST SCOPED</h5>
+                                <p class="card-text">#{sessionCharacter.description}</p>
+                                <h:form>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.vorname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.nachname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.description}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.pictureUrl}"></h:inputText></div>
+                                    <h:commandButton class="btn btn-primary"
+                                                     value="Set"
+                                    >
+
+                                    </h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                        <div class="card">
+                            <h:graphicImage class="card-img-top w-100 d-block"
+                                            url="#{appCharacter.pictureUrl}"
+                                            width="450px" height="250px" alt=""/>
+                            <div class="card-body">
+
+                                <h4 class="card-title">#{appCharacter.nachname}, #{appCharacter.vorname}</h4>
+                                <h5 class="card-title">APPLICATION SCOPED</h5>
+                                <p class="card-text">#{appCharacter.description}</p>
+                                <h:form>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{appCharacter.vorname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{appCharacter.nachname}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{appCharacter.description}"></h:inputText></div>
+                                    <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{appCharacter.pictureUrl}"></h:inputText></div>
+                                    <h:commandButton class="btn btn-primary"
+                                                     value="Set"
+                                    >
+
+                                    </h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- DO NOT USE - Objects inherit containers Scope - See BeansContainer.java why!!!
+                    <c:forEach var="item" items="#{beansContainer.characterList}">
+                        <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                            <div class="card">
+                                <h:graphicImage class="card-img-top w-100 d-block"
+                                                url="#{item.pictureUrl}"
+                                                width="450px" height="250px" alt=""/>
+                                <div class="card-body">
+
+                                    <h4 class="card-title">#{item.nachname}, #{item.vorname}</h4>
+                                    <h5 class="card-title">APPLICATION SCOPED</h5>
+                                    <p class="card-text">#{item.description}</p>
+                                    <h:form>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{item.vorname}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{item.nachname}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{item.description}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{item.pictureUrl}"></h:inputText></div>
+                                        <h:commandButton class="btn btn-primary"
+                                                         value="Set"
+                                        >
+
+                                        </h:commandButton>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach> -->
+                    <div class="w-100"></div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="w-100"></div>
+                    <div class="w-100"></div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="w-100"></div>
+                    <div class="w-100"></div>
+                </div>
+                <div class="row">
+                    <div class="w-100"></div>
+                    <div class="col" style="margin-bottom: 10px;margin-top: 10px;">
+                        <div class="card"></div>
+                        <div class="card"></div>
+                    </div>
+                    <div class="w-100"></div>
+                </div>
+                <div class="row">
+                    <div class="w-100"></div>
+                </div>
+                <div class="row">
+                    <div class="w-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/bootstrap/js/bootstrap.min.js" type=""></script>
+<script src="assets/js/theme.js" type=""></script>
+</body>
+</html>

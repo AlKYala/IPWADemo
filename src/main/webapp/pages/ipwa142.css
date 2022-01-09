@@ -1,0 +1,28 @@
+table.band {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid grey;
+    padding: 3px;
+    padding-left: 8px;
+}
+
+th {
+    text-align: left;
+    background-color: #cccccc;
+}
+
+tr.gerade {
+    background-color: #eeeeee;
+}
+
+tr.ungerade {
+    background-color: #ffffff;
+}
+
+td img {
+    height: 100px;
+    width: 100px;
+}
+

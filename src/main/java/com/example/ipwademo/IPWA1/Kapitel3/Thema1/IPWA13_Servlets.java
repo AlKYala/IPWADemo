@@ -19,6 +19,7 @@ public class IPWA13_Servlets extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println(String.format("<h1> %s <h1>", message));
+        out.println("<a href=\"index.jsp\">Home</a>");
         out.println("</body></html>");
     }
 
