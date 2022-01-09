@@ -1,7 +1,11 @@
 package com.example.ipwademo.IPWA1.Kapitel6.Thema2.Artikel;
 
+import org.primefaces.PrimeFaces;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -83,5 +87,17 @@ public class Shop {
         artikel.setId(this.assignId);
         this.assignId++;
         this.artikelList.add(artikel);
+        this.updateArtikelListView();
+    }
+
+    public void updateArtikelListView() {
+        PrimeFaces.current().ajax().update("form");
+    }
+
+    public void giveArtikelCreatedInfo(Artikel artikel) {
+        String message = String.format("Artikel erstellt: %s - Preis: %s",
+                artikel.getName(), artikel.getWarenkorbPrice());
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", message));
     }
 }

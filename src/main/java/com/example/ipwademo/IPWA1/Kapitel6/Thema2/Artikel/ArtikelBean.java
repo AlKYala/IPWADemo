@@ -14,6 +14,8 @@ public class ArtikelBean {
     private int preisEuroList;
     private int preisCentList;
     private Date verfuegbarAb;
+    private String euroString;
+    private String centString;
 
     public String getName() {
         return name;
@@ -63,9 +65,36 @@ public class ArtikelBean {
         this.verfuegbarAb = verfuegbarAb;
     }
 
+    public void setEuroString(String s) {
+        this.setPreisEuroList(Integer.parseInt(s));
+    }
+
+    public void setCentString(String s) {
+        this.setPreisCentList(Integer.parseInt(s));
+    }
+
+    public String getEuroString() {
+        return this.euroString;
+    }
+
+    public String getCentString() {
+        return this.centString;
+    }
+
     public Artikel getAsArtikel() {
         //id set in shop
         return new Artikel(-1, this.getName(), this.getText(), this.getBild(),
                 this.getVerfuegbarAb(), this.preisEuroList, this.preisCentList);
+    }
+
+    public void clear() {
+        this.setName("");
+        this.setText("");
+        this.setBild("");
+        this.setPreisCentList(0);
+        this.setPreisEuroList(0);
+        this.setVerfuegbarAb(new Date());
+        this.setCentString("");
+        this.setEuroString("");
     }
 }

@@ -13,7 +13,8 @@
         <h:form>
             <p:growl id="messagesNavbar"/>
             <p:menubar>
-                <p:menuitem value="Artikel Erstellen" icon="pi pi-fw pi-plus" onclick="PF('artikelErstellen').show();"/>
+                <p:menuitem value="Artikel Erstellen" icon="pi pi-fw pi-plus"
+                            onclick="PF('artikelErstellen').show();"/>
 
                 <f:facet name="options">
                     <p:commandButton value="Einkaufswagen" icon="pi pi-fw pi-shopping-cart"
@@ -24,7 +25,7 @@
     </div>
 
     <!-- Modal Warenkorb-->
-    <p:dialog header="Modal Dialog" widgetVar="warenkorbModal" modal="true"
+    <p:dialog header="Warenkorb" widgetVar="warenkorbModal" modal="true"
               style="max-width: 70%; margin-bottom: 200px; margin-top: 200px;">
         <h:form id="warenKorbForm">
             <p:messages id="messageModal" showDetail="true" closable="true" rendered="#{warenkorb.showMessageInCart}">
@@ -69,11 +70,44 @@
 
     <!-- Modal add -->
 
-    <!-- Modal add end -->
-    <p:dialog header="Modal Dialog" widgetVar="artikelErstellen" modal="true"
+    <p:dialog header="Artikel erstellen" widgetVar="artikelErstellen" modal="true"
               style="max-width: 70%; margin-bottom: 200px; margin-top: 200px;">
         <h:form id="artikelErstellenForm">
+            <div class="card">
+                <h5>Advanced</h5>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-6">
+                        <p:outputLabel value="Name"/>
+                        <p:inputText value="#{artikelBean.name}"/>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <p:outputLabel value="Beschreibung"/>
+                        <p:inputTextarea value="#{artikelBean.text}" rows="4"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <p:outputLabel value="bildUrl"/>
+                        <p:inputText value="#{artikelBean.bild}"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel value="Verfuegbar ab"/>
+                        <p:calendar value="#{artikelBean.verfuegbarAb}"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel value="Euros"/>
+                        <p:inputText value="#{artikelBean.euroString}"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel value="Cent"/>
+                        <p:inputText value="#{artikelBean.centString}"/>
+                    </div>
+                    <p:commandButton action="#{warenkorb.allowCreateMessageShow()}"
+                                     value="Add to Cart" icon="pi pi-fw pi-plus" styleClass="ui-button-info">
+                        <f:actionListener binding="#{shop.addArtikel(artikelBean.asArtikel)}" />
+                        <f:actionListener binding="#{shop.giveArtikelCreatedInfo(artikelBean.asArtikel)}" />
+                    </p:commandButton>
 
+                </div>
+            </div>
         </h:form>
     </p:dialog>
     <!-- navbar end-->

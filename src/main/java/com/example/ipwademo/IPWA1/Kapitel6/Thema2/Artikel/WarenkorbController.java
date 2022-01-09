@@ -157,6 +157,12 @@ public class WarenkorbController {
         PrimeFaces.current().ajax().update("warenKorbForm");
     }
 
+    public void allowCreateMessageShow() {
+        System.out.println("allowing");
+        this.setShowMessageInCart(true);
+        this.setShowMessageInCreate(false);
+        this.setShowMessageInCreate(false);
+    }
 
     // MESSAGES
 
