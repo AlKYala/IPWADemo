@@ -11,7 +11,7 @@
     <div class="card">
         <!-- navbar -->
         <h:form>
-            <p:growl id="messages"/>
+            <p:growl id="messagesNavbar"/>
 
             <p:menubar>
 
@@ -24,8 +24,11 @@
     </div>
 
     <!-- Modal -->
-    <p:dialog header="Modal Dialog" widgetVar="warenkorbModal" modal="true">
+    <p:dialog header="Modal Dialog" widgetVar="warenkorbModal" modal="true" style="max-width: 70%; margin-bottom: 200px; margin-top: 200px;">
         <h:form id="warenKorbForm">
+            <p:messages id="messageModal" showDetail="true" closable="true" rendered="#{warenkorb.showMessageInModal}">
+                <p:autoUpdate/>
+            </p:messages>
             <p:dataTable id="warenkorbProdukte" var="artikel" value="#{warenkorb.warenKorbList}" rowKey="#{artikel.id}">
                 <p:column headerText="Bild">
                     <p:graphicImage style="max-height: 72px; max-width: 120px;" url="#{artikel.bild}"/>
@@ -41,8 +44,22 @@
                 </p:column>
                 <p:column>
 
-                    <p:commandButton action="#{warenkorb.removeArtikel(artikel)}"
-                                     value="Loeschen" styleClass="ui-button-danger"/>
+
+                    <p:selectOneMenu value="#{artikel.foo}" onchange="k">
+                        <f:selectItem itemLabel="0 (Löschen)" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                        <f:selectItem itemLabel="6" itemValue="6" />
+                        <f:selectItem itemLabel="7" itemValue="7" />
+                        <f:selectItem itemLabel="8" itemValue="8" />
+                        <f:selectItem itemLabel="9" itemValue="9" />
+                    </p:selectOneMenu>
+
+                    <p:commandButton action="#{warenkorb.changeAnzahl(artikel)}"
+                                     value="Ändern" styleClass="ui-button-warning"/>
                 </p:column>
             </p:dataTable>
         </h:form>
@@ -51,9 +68,12 @@
     <!-- navbar end-->
 
     <h:form id="form">
+        <p:messages id="messagesList" showDetail="true" closable="true" rendered="#{warenkorb.showMessageInList}">
+            <p:autoUpdate/>
+        </p:messages>
         <p:dataTable id="products" var="artikel" value="#{shop.artikelList}" rowKey="#{artikel.id}">
 
-            <p:ajax event="rowSelect" update="warenKorbForm" listener="#{warenkorb.dummyMethodForListener}"/>
+            <!--<p:ajax event="mousemove" update="warenKorbForm" listener="#{warenkorb.dummyMethodForListener}"/>-->
 
             <p:column headerText="Bild">
                 <p:graphicImage style="max-height: 180px; max-width: 300px;" url="#{artikel.bild}"/>
@@ -69,7 +89,7 @@
             </p:column>
             <p:column>
 
-                <p:selectOneMenu value="#{artikel.foo}"> <!-- ggf. ein onchange? -->
+                <p:selectOneMenu value="#{artikel.foo}">
                     <f:selectItem itemLabel="1" itemValue="1" />
                     <f:selectItem itemLabel="2" itemValue="2" />
                     <f:selectItem itemLabel="3" itemValue="3" />
@@ -81,7 +101,7 @@
                     <f:selectItem itemLabel="9" itemValue="9" />
                 </p:selectOneMenu>
 
-                <p:commandButton    action="#{warenkorb.addArtikel(artikel)}"
+                <p:commandButton    action="#{warenkorb.addArtikelView(artikel)}"
                                  value="Add to Cart" icon="pi pi-fw pi-home" styleClass="ui-button-info"/>
             </p:column>
         </p:dataTable>
@@ -90,4 +110,4 @@
 </h:body>
 </html>
 
-<!--TODO: AJAX, Toastr -->
+<!--TODO: Toastr -->

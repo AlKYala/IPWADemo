@@ -1,7 +1,11 @@
 package com.example.ipwademo.IPWA1.Kapitel6.Thema2.Artikel;
 
+import org.primefaces.PrimeFaces;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -18,6 +22,8 @@ public class WarenkorbController {
 
     private Integer num;
 
+    private boolean showMessageInList;
+
     public Integer getNum() {
         return num;
     }
@@ -28,7 +34,9 @@ public class WarenkorbController {
 
     public WarenkorbController() {
         this.warenkorbItemMap = new HashMap<Integer, Artikel>();
+        this.warenKorbList = new ArrayList<Artikel>();
         this.anzahlen = new HashMap<Integer, Integer>();
+        this.showMessageInList = true;
     }
 
     public Map<Integer, Artikel> getWarenkorbItemMap() {
@@ -39,41 +47,114 @@ public class WarenkorbController {
         this.warenkorbItemMap = warenkorbItemMap;
     }
 
-    public void removeArtikel(Artikel warenkorbItem) {
-
-        System.out.printf("Trying to Delete: %s\n", warenkorbItem.toString());
-        this.warenkorbItemMap.remove(warenkorbItem.getId());
-    }
-
-    public void addArtikel(Artikel artikel) {
-
-        int id = artikel.getId();
-
-        System.out.println(this.warenkorbItemMap);
-
-        if(warenkorbItemMap.containsKey(id)) {
-
-            this.anzahlen.put(artikel.getId(), artikel.getAnzahl()+this.anzahlen.get(id));
-
-            this.warenkorbItemMap.get(id).setAnzahl(this.anzahlen.get(artikel.getId()));
-            this.dummyMethodForListener();
-            return;
-        }
-        this.anzahlen.put(artikel.getId(), artikel.getAnzahl());
-        this.warenkorbItemMap.put(artikel.getId(), artikel);
-
-        this.dummyMethodForListener();
-    }
-
     public List<Artikel> getWarenKorbList() {
-        return new ArrayList<Artikel>(this.warenkorbItemMap.values());
+        return this.warenKorbList;
     }
 
     public void setWarenKorbList(List<Artikel> warenKorbList) {
         this.warenKorbList = warenKorbList;
     }
 
+    public boolean getShowMessageInList() {
+        return this.showMessageInList;
+    }
+
+    public boolean getShowMessageInModal() {
+        return !this.getShowMessageInList();
+    }
+
+    public void setShowMessageInList(boolean showMessageInList) {
+        this.showMessageInList = showMessageInList;
+        System.out.println(showMessageInList);
+    }
+
+    public void addArtikelView(Artikel artikel) {
+        this.setShowMessageInList(true);
+        this.addArtikel(artikel);
+        this.updateEinkaufswagenView();
+        this.giveArtikelAddedInfo(artikel);
+    }
+
+    private void addArtikel(Artikel artikel) {
+
+        int id = artikel.getId();
+
+        int anzahl = (warenkorbItemMap.containsKey(id))
+                ? artikel.getAnzahl()+this.anzahlen.get(id)
+                : artikel.getAnzahl();
+
+        artikel.setAnzahl(anzahl);
+
+        this.anzahlen.put(artikel.getId(), anzahl);
+        this.warenkorbItemMap.put(artikel.getId(), artikel);
+        this.addToWarenkorbList(artikel);
+    }
+
+    public void addToWarenkorbList(Artikel artikel) {
+        Optional<Artikel> foundArtikel =
+                this.warenKorbList.stream()
+                        .filter(warenkorbItem -> warenkorbItem.getId() == artikel.getId())
+                        .findFirst();
+        if(foundArtikel.isPresent()) {
+            foundArtikel.get().setAnzahl(artikel.getAnzahl());
+            return;
+        }
+        this.warenKorbList.add(artikel);
+    }
+
+    private void removeArtikel(Artikel warenkorbItem) {
+
+        this.warenkorbItemMap.remove(warenkorbItem.getId());
+        this.warenkorbItemMap.remove(warenkorbItem.getId());
+        this.warenKorbList.removeIf(artikel -> artikel.getId() == warenkorbItem.getId());
+
+    }
+
+    public void removeArtikelView(Artikel artikel) {
+        this.setShowMessageInList(false);
+        this.removeArtikel(artikel);
+        this.giveArtikelDeletedInfo(artikel);
+        this.updateEinkaufswagenView();
+    }
+
+    public void changeAnzahl(Artikel artikel) {
+        this.setShowMessageInList(false);
+        if(artikel.getAnzahl() == 0) {
+            this.removeArtikelView(artikel);
+            return;
+        }
+        this.removeArtikel(artikel);
+        this.giveNumberChangedInfo(artikel);
+        this.addArtikel(artikel);
+        this.updateEinkaufswagenView();
+    }
+
+
     //AJAX
 
-    public void dummyMethodForListener() {}
+    //https://primefaces.github.io/primefaces/11_0_0/#/core/ajaxRendering - Dynamic/Runtime Updates
+    public void updateEinkaufswagenView() {
+        PrimeFaces.current().ajax().update("warenKorbForm");
+    }
+
+
+    // MESSAGES
+
+    public void giveArtikelAddedInfo(Artikel artikel) {
+        String message = String.format("Zum Warenkorb hinzugefuegt: %s - Anzahl: %d - Preis: %s",
+                artikel.getName(), artikel.getAnzahl(), artikel.getWarenkorbPrice());
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", message));
+    }
+
+    public void giveNumberChangedInfo(Artikel artikel) {
+        String message = String.format("Anzahl geandert: %s - Anzahl: %d, Preis: %s",
+                artikel.getName(), artikel.getAnzahl(), artikel.getWarenkorbPrice());
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", message));
+    }
+
+    public void giveArtikelDeletedInfo(Artikel artikel) {
+        String message = String.format("Aus dem Warenkorb entfernt: %s", artikel.getName());
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", message));
+    }
 }
