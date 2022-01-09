@@ -14,24 +14,42 @@
             <p:growl id="messages"/>
 
             <p:menubar>
-                <p:submenu label="File" icon="pi pi-fw pi-file">
-                    <p:submenu label="New" icon="pi pi-fw pi-plus">
-                        <p:menuitem value="Bookmark" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem value="Video" icon="pi pi-fw pi-video"/>
-                    </p:submenu>
-                    <p:menuitem value="Delete" icon="pi pi-fw pi-trash"/>
-                    <p:divider />
-                    <p:menuitem value="Export" icon="pi pi-fw pi-external-link"/>
-                </p:submenu>
-
-                <p:menuitem value="Delete" icon="pi pi-fw pi-calendar-minus"/>
 
                 <f:facet name="options">
-                    <p:button value="Home" icon="pi pi-fw pi-home" styleClass="ui-button-info"/>
+                    <p:commandButton value="Einkaufswagen" icon="pi pi-fw pi-shopping-cart"
+                                     type="button" onclick="PF('warenkorbModal').show();" />
                 </f:facet>
             </p:menubar>
         </h:form>
     </div>
+
+    <!-- Modal -->
+    <p:dialog header="Modal Dialog" widgetVar="warenkorbModal" modal="true">
+        <h:form id="warenKorbForm">
+            <p:dataTable id="warenkorbProdukte" var="artikel" value="#{warenkorb.warenKorbList}" rowKey="#{artikel.id}">
+
+                <p:column headerText="Bild">
+                    <p:graphicImage style="max-height: 72px; max-width: 120px;" url="#{artikel.bild}"/>
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{artikel.name}" />
+                </p:column>
+                <p:column headerText="Text">
+                    <h:outputText value="#{artikel.text}" />
+                </p:column>
+                <p:column headerText="Preis">
+                    <h:outputText value="#{artikel.warenkorbPrice}" />
+                </p:column>
+                <p:column>
+
+                    <p:commandButton action="#{warenkorb.removeArtikel(artikel)}"
+                                     value="Loeschen" styleClass="ui-button-danger"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </p:dialog>
+    <!-- Modal -->
+
     <!-- navbar -->
     <h:form id="form">
         <p:dataTable id="products" var="artikel" value="#{shop.artikelList}" rowKey="#{artikel.id}">

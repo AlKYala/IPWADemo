@@ -40,7 +40,9 @@ public class WarenkorbController {
     }
 
     public void removeArtikel(Artikel warenkorbItem) {
-        this.warenkorbItemMap.remove(warenkorbItem);
+
+        System.out.printf("Trying to Delete: %s\n", warenkorbItem.toString());
+        this.warenkorbItemMap.remove(warenkorbItem.getId());
     }
 
     public void addArtikel(Artikel artikel) {

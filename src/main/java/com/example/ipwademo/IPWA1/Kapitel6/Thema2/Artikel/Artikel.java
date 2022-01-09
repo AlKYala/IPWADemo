@@ -12,8 +12,8 @@ public class Artikel {
     private String name;
     private String text;
     private String bild;
-    private int preisEuro;
-    private int preisCent;
+    private int preisEuroList;
+    private int preisCentList;
     private Date verfuegbarAb;
     private int anzahl;
     private String foo;
@@ -75,15 +75,15 @@ public class Artikel {
     }
 
     public int getPreisEuro() {
-        return preisEuro;
+        return preisEuroList;
     }
 
     public void setPreisEuro(int preisEuro) {
-        this.preisEuro = preisEuro;
+        this.preisEuroList = preisEuro;
     }
 
     public int getPreisCent() {
-        return preisCent;
+        return preisCentList;
     }
 
     public void addAnzahl(int quantity) {
@@ -92,8 +92,23 @@ public class Artikel {
 
     public void setPreisCent(int preisCent) {
         int euros = preisCent % 100;
-        this.preisEuro += euros;
-        this.preisCent = (preisCent - (euros * 100));
+        this.preisEuroList += euros;
+        this.preisCentList = (preisCent - (euros * 100));
+    }
+
+    public String getWarenkorbPrice() {
+        int euros = this.preisEuroList * this.anzahl;
+
+        int centsRaw = this.preisCentList * this.anzahl;
+
+        int additionalEuros = (centsRaw) % 100;
+
+        euros += additionalEuros;
+        int cents = (centsRaw - (additionalEuros * 100));
+
+        String centsString = (cents < 10) ? String.format("0%d", cents) : Integer.toString(cents);
+
+        return String.format("%d,%s€", euros, centsString);
     }
 
     public String getFormattedPrice() {
