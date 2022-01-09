@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
@@ -17,133 +18,6 @@
 </head>
 
 <body id="page-top" style="background: var(--bs-gray-100);">
-<!--<div class="team-boxed">
-    <div class="container">
-        <div class="intro" style="width: 700px;">
-            <h2 class="text-center">IPWA 1-5-1</h2>
-            <p class="text-center" style="margin-bottom: 5px;">Hier gehts hauptsaechlich um die Lebensdauer von Beans</p>
-            <p class="text-center" style="margin-bottom: 5px;">Von Links oben nach rechts unten: NoneScoped, Request Scoped, View Scoped, Session Scoped, Application Scoped</p>
-            <p class="text-center" style="margin-bottom: 5px;"><span><strong>None Scoped:&nbsp;</strong></span>Es wird nichts passieren, da nach der Request die Aenderungen sterben</p>
-            <p class="text-center" style="margin-bottom: 5px;"><span><strong>Request Scoped:&nbsp;</strong></span>Sobald du ein neues Request machst, gehen die alten aenderungen weg. (Lebensdauer des Req. endet)</p>
-            <p class="text-center d-xxl-flex justify-content-xxl-center" style="margin-bottom: 5px;"><span><strong>View Scoped:&nbsp;</strong></span>Bleibt so lange wie du den Tab hast.</p>
-            <p class="text-center d-xxl-flex justify-content-xxl-center" style="margin-bottom: 5px;"><span><strong>Session Scoped:&nbsp;</strong></span>Neue Sitzung durch neuen Browser/Incognito Tab</p>
-            <p class="text-center d-xxl-flex justify-content-xxl-center" style="margin-bottom: 5px;"><span><strong>Application Scoped:</strong>&nbsp;</span>Bleibt so lange bis der Server down ist</p>
-        </div>
-        <div class="row people">
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                    <h:graphicImage class="rounded-circle" url="#{noCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{noCharacter.vorname}"/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{noCharacter.nachname}"/>
-                    <br></br>
-                    <h:outputText class="p description" value="#{noCharacter.description}"></h:outputText>
-                    <h:form>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{noCharacter.vorname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{noCharacter.nachname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{noCharacter.description}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{noCharacter.pictureUrl}"></h:inputText></div>
-                        <h:commandButton class="btn btn-primary" type="button"
-                                         value="Set"
-                        >
-
-                        </h:commandButton>
-                    </h:form>                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                    <h:graphicImage class="rounded-circle" url="#{reqCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{reqCharacter.vorname}"/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{reqCharacter.nachname}"/>
-                    <br></br>
-                    <h:outputText class="p description" value="#{reqCharacter.description}"></h:outputText>
-                    <h:form>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{reqCharacter.vorname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{reqCharacter.nachname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{reqCharacter.description}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{reqCharacter.pictureUrl}"></h:inputText></div>
-                        <h:commandButton class="btn btn-primary"
-                                         value="Set"
-                        >
-
-                        </h:commandButton>
-                    </h:form>                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                    <h:graphicImage class="rounded-circle" url="#{viewCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{viewCharacter.vorname}"/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{viewCharacter.nachname}"/>
-                    <br></br>
-                    <h:outputText class="p description" value="#{viewCharacter.description}"></h:outputText>
-                    <h:form>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{viewCharacter.vorname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{viewCharacter.nachname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{viewCharacter.description}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{viewCharacter.pictureUrl}"></h:inputText></div>
-                        <h:commandButton class="btn btn-primary"
-                                         value="Set"
-                        >
-
-                        </h:commandButton>
-                    </h:form>                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                    <h:graphicImage class="rounded-circle" url="#{sessionCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{sessionCharacter.vorname}"/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{sessionCharacter.nachname}"/>
-                    <br></br>
-                    <h:outputText class="p description" value="#{sessionCharacter.description}"></h:outputText>
-                    <h:form>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.vorname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.nachname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.description}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{sessionCharacter.pictureUrl}"></h:inputText></div>
-                        <h:commandButton class="btn btn-primary"
-                                         value="Set"
-                        >
-
-                        </h:commandButton>
-                    </h:form>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                    <h:graphicImage class="rounded-circle" url="#{appCharacter.pictureUrl}" style="width: 150px; height: 150px;" alt=""/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{appCharacter.vorname}"/>
-                    <br></br>
-                    <h:outputText class="h3 name" value="#{appCharacter.nachname}"/>
-                    <br></br>
-                    <h:outputText class="p description" value="#{appCharacter.description}"></h:outputText>
-                    <h:form>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{appCharacter.vorname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{appCharacter.nachname}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{appCharacter.description}"></h:inputText></div>
-                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{appCharacter.pictureUrl}"></h:inputText></div>
-                        <h:commandButton class="btn btn-primary"
-                                value="Set"
-                        >
-
-                        </h:commandButton>
-                    </h:form>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-</div> -->
 <div id="wrapper">
     <div class="d-flex flex-column" id="content-wrapper">
         <div id="content">
@@ -220,7 +94,7 @@
                                             width="450px" height="250px" alt=""/>
                             <div class="card-body">
 
-                                <h4 class="card-title">#{viewCharacter.vorname}, #{viewCharacter.nachname}</h4>
+                                <h4 class="card-title">#{viewCharacter.nachname}, #{viewCharacter.vorname}</h4>
                                 <h5 class="card-title">VIEW SCOPED</h5>
                                 <p class="card-text">#{viewCharacter.description}</p>
                                 <h:form>
@@ -270,7 +144,7 @@
                                             width="450px" height="250px" alt=""/>
                             <div class="card-body">
 
-                                <h4 class="card-title">#{appCharacter.vorname}, #{appCharacter.nachname}</h4>
+                                <h4 class="card-title">#{appCharacter.nachname}, #{appCharacter.vorname}</h4>
                                 <h5 class="card-title">APPLICATION SCOPED</h5>
                                 <p class="card-text">#{appCharacter.description}</p>
                                 <h:form>
@@ -287,6 +161,34 @@
                             </div>
                         </div>
                     </div>
+                    <!-- DO NOT USE - Objects inherit containers Scope - See BeansContainer.java why!!!
+                    <c:forEach var="item" items="#{beansContainer.characterList}">
+                        <div class="col" style="margin-bottom: 10px;margin-top: 10px;max-width: 450px;">
+
+                            <div class="card">
+                                <h:graphicImage class="card-img-top w-100 d-block"
+                                                url="#{item.pictureUrl}"
+                                                width="450px" height="250px" alt=""/>
+                                <div class="card-body">
+
+                                    <h4 class="card-title">#{item.nachname}, #{item.vorname}</h4>
+                                    <h5 class="card-title">APPLICATION SCOPED</h5>
+                                    <p class="card-text">#{item.description}</p>
+                                    <h:form>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Vorname</span><h:inputText class="form-control" type="text" value="#{item.vorname}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{item.nachname}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{item.description}"></h:inputText></div>
+                                        <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{item.pictureUrl}"></h:inputText></div>
+                                        <h:commandButton class="btn btn-primary"
+                                                         value="Set"
+                                        >
+
+                                        </h:commandButton>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach> -->
                     <div class="w-100"></div>
                 </div>
                 <div class="row justify-content-between">

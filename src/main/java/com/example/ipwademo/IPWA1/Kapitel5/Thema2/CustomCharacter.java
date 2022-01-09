@@ -1,13 +1,13 @@
 package com.example.ipwademo.IPWA1.Kapitel5.Thema2;
 
-import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Character;
+import com.example.ipwademo.IPWA1.Kapitel5.Thema1.shared.Charakter;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 @RequestScoped
 @ManagedBean(name = "character")
-public class CustomCharacter extends Character {
+public class CustomCharacter extends Charakter {
     @Override
     public CustomCharacter clone() {
         CustomCharacter customCharacter = new CustomCharacter();

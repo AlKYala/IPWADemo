@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Brand</title>
+    <title>IPWA1 Demo</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -69,6 +69,7 @@
                         <h4 class="text-dark mb-0">Was ist das hier?</h4>
                         <p>Ich wollte die Inhalte von IPWA1 mal ausprobieren. Im Skript selber werden ja nur Code-Snippets gezeigt (und die dann auch unvollständig). Es geht NICHT darum, irgendwelche präsentierfähigen Webseiten zu bauen. An einigen Stellen Benutze ich Bootstrap (Kapitel 5) zu Darstellung, das dann aber auch sehr kleingehalten. Daher werde ich an einigen Stellen plain HTML nutzen - sodass es grade noch so reicht.<br></p>
                         <p>Es geht an erster Stelle wirklich NUR darum, mal JSP und JSF mal gesehen zu haben.<br></p>
+                        <p>Wenn du es wirklich "authentisch" fuer JSF halten willst, empfiehlt sich z.B. Bootfaces.<br></p>
                     </div>
                 </div>
                 <div class="row">
