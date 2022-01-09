@@ -91,9 +91,8 @@ public class Artikel {
     }
 
     public void setPreisCent(int preisCent) {
-        int euros = preisCent % 100;
-        this.preisEuroList += euros;
-        this.preisCentList = (preisCent - (euros * 100));
+        this.preisEuroList += preisCent / 100;
+        this.preisCentList = preisCent % 100;
     }
 
     public String getWarenkorbPrice() {
@@ -115,6 +114,10 @@ public class Artikel {
         String cents = (this.getPreisCent() < 10)
                 ? String.format("0%d", this.getPreisCent())
                 : Integer.toString(this.getPreisCent());
+
+        //System.out.println(cents);
+        //System.out.println(String.format("%d.%s€", this.getPreisEuro(), cents));
+
         return String.format("%d.%s€", this.getPreisEuro(), cents);
     }
 

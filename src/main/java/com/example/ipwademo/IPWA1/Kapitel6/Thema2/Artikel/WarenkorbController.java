@@ -56,11 +56,13 @@ public class WarenkorbController {
             this.anzahlen.put(artikel.getId(), artikel.getAnzahl()+this.anzahlen.get(id));
 
             this.warenkorbItemMap.get(id).setAnzahl(this.anzahlen.get(artikel.getId()));
-
+            this.dummyMethodForListener();
             return;
         }
         this.anzahlen.put(artikel.getId(), artikel.getAnzahl());
         this.warenkorbItemMap.put(artikel.getId(), artikel);
+
+        this.dummyMethodForListener();
     }
 
     public List<Artikel> getWarenKorbList() {
@@ -70,4 +72,8 @@ public class WarenkorbController {
     public void setWarenKorbList(List<Artikel> warenKorbList) {
         this.warenKorbList = warenKorbList;
     }
+
+    //AJAX
+
+    public void dummyMethodForListener() {}
 }
