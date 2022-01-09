@@ -23,6 +23,8 @@ public class WarenkorbController {
     private Integer num;
 
     private boolean showMessageInList;
+    private boolean showMessageInCart;
+    private boolean showMessageInCreate;
 
     public Integer getNum() {
         return num;
@@ -59,17 +61,31 @@ public class WarenkorbController {
         return this.showMessageInList;
     }
 
-    public boolean getShowMessageInModal() {
-        return !this.getShowMessageInList();
-    }
-
     public void setShowMessageInList(boolean showMessageInList) {
         this.showMessageInList = showMessageInList;
         System.out.println(showMessageInList);
     }
 
+    public boolean getShowMessageInCart() {
+        return showMessageInCart;
+    }
+
+    public void setShowMessageInCart(boolean showMessageInCart) {
+        this.showMessageInCart = showMessageInCart;
+    }
+
+    public boolean getShowMessageInCreate() {
+        return showMessageInCreate;
+    }
+
+    public void setShowMessageInCreate(boolean showMessageInCreate) {
+        this.showMessageInCreate = showMessageInCreate;
+    }
+
     public void addArtikelView(Artikel artikel) {
         this.setShowMessageInList(true);
+        this.setShowMessageInCart(false);
+        this.setShowMessageInCreate(false);
         this.addArtikel(artikel);
         this.updateEinkaufswagenView();
         this.giveArtikelAddedInfo(artikel);
@@ -112,6 +128,8 @@ public class WarenkorbController {
 
     public void removeArtikelView(Artikel artikel) {
         this.setShowMessageInList(false);
+        this.setShowMessageInCreate(false);
+        this.setShowMessageInCart(true);
         this.removeArtikel(artikel);
         this.giveArtikelDeletedInfo(artikel);
         this.updateEinkaufswagenView();
@@ -119,6 +137,8 @@ public class WarenkorbController {
 
     public void changeAnzahl(Artikel artikel) {
         this.setShowMessageInList(false);
+        this.setShowMessageInCreate(false);
+        this.setShowMessageInCart(true);
         if(artikel.getAnzahl() == 0) {
             this.removeArtikelView(artikel);
             return;
