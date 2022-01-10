@@ -28,9 +28,11 @@
     <p:dialog header="Warenkorb" widgetVar="warenkorbModal" modal="true"
               style="max-width: 70%; margin-bottom: 200px; margin-top: 200px;">
         <h:form id="warenKorbForm">
+
             <p:messages id="messageModal" showDetail="true" closable="true" rendered="#{warenkorb.showMessageInCart}">
                 <p:autoUpdate/>
             </p:messages>
+
             <p:dataTable id="warenkorbProdukte" var="artikel" value="#{warenkorb.warenKorbList}" rowKey="#{artikel.id}">
                 <p:column headerText="Bild">
                     <p:graphicImage style="max-height: 72px; max-width: 120px;" url="#{artikel.bild}"/>
@@ -100,10 +102,8 @@
                         <p:outputLabel value="Cent"/>
                         <p:inputText value="#{artikelBean.centString}"/>
                     </div>
-                    <p:commandButton action="#{warenkorb.allowCreateMessageShow()}"
+                    <p:commandButton action="#{shop.addArtikel(artikelBean.asArtikel)}"
                                      value="Add to Cart" icon="pi pi-fw pi-plus" styleClass="ui-button-info">
-                        <f:actionListener binding="#{shop.addArtikel(artikelBean.asArtikel)}" />
-                        <f:actionListener binding="#{shop.giveArtikelCreatedInfo(artikelBean.asArtikel)}" />
                     </p:commandButton>
 
                 </div>
@@ -113,9 +113,11 @@
     <!-- navbar end-->
 
     <h:form id="form">
+
         <p:messages id="messagesList" showDetail="true" closable="true" rendered="#{warenkorb.showMessageInList}">
             <p:autoUpdate/>
         </p:messages>
+
         <p:dataTable id="products" var="artikel" value="#{shop.artikelList}" rowKey="#{artikel.id}"
                      rows="10"
                      paginator="true"

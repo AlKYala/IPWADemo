@@ -13,7 +13,6 @@ public class BossController {
     private int index = 0;
 
     public CustomCharacter getCharacter() {
-        System.out.println(BossService.getInstance().getMitglieder());
         return BossService.getInstance().getMitglieder().get(this.index);
     }
 
@@ -27,7 +26,6 @@ public class BossController {
 
     public void dec() {
         index = (index == 0) ? index = BossService.getInstance().getMitglieder().size()-1 : index-1; //modulo wollte nicht
-        System.out.println(index);
     }
 
     public void remove() {

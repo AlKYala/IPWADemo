@@ -32,7 +32,6 @@ public class IPWA133 extends HttpServlet {
 
         String jsonString = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 
-        System.out.println(jsonString);
 
         String name = new JSONObject(jsonString).getString("name");
         String saenger = new JSONObject(jsonString).getString("saenger");
@@ -42,7 +41,6 @@ public class IPWA133 extends HttpServlet {
 
         Band band = new Band(name, saenger, gitarrist, bassist, drummer);
 
-        System.out.println(band);
 
         IPWA133Data.getData().add(band);
     }

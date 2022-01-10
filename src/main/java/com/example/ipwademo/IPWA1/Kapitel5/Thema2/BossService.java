@@ -35,7 +35,6 @@ public class BossService {
     }
 
     public List<CustomCharacter> getMitglieder() {
-        System.out.println(this.mitglieder.toString());
         return this.mitglieder;
     }
 

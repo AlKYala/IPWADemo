@@ -18,7 +18,6 @@ public class AnzahlBean {
     }
 
     public void setAnzahl(Double number) {
-        System.out.println(number);
         this.anzahl = number;
     }
 

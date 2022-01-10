@@ -11,7 +11,7 @@ import java.util.*;
 
 @SessionScoped
 @ManagedBean(name = "warenkorb")
-public class WarenkorbController {
+public class Warenkorb {
 
     private Map<Integer, Artikel> warenkorbItemMap;
 
@@ -34,7 +34,7 @@ public class WarenkorbController {
         this.num = num;
     }
 
-    public WarenkorbController() {
+    public Warenkorb() {
         this.warenkorbItemMap = new HashMap<Integer, Artikel>();
         this.warenKorbList = new ArrayList<Artikel>();
         this.anzahlen = new HashMap<Integer, Integer>();
@@ -63,7 +63,7 @@ public class WarenkorbController {
 
     public void setShowMessageInList(boolean showMessageInList) {
         this.showMessageInList = showMessageInList;
-        System.out.println(showMessageInList);
+        System.out.printf("ListView: %s\n", this.getShowMessageInList());
     }
 
     public boolean getShowMessageInCart() {
@@ -71,7 +71,9 @@ public class WarenkorbController {
     }
 
     public void setShowMessageInCart(boolean showMessageInCart) {
+
         this.showMessageInCart = showMessageInCart;
+        System.out.printf("CartView: %s\n", this.getShowMessageInCart());
     }
 
     public boolean getShowMessageInCreate() {
@@ -79,13 +81,12 @@ public class WarenkorbController {
     }
 
     public void setShowMessageInCreate(boolean showMessageInCreate) {
+
         this.showMessageInCreate = showMessageInCreate;
+        System.out.printf("CreateView: %s\n", this.getShowMessageInCreate());
     }
 
     public void addArtikelView(Artikel artikel) {
-        this.setShowMessageInList(true);
-        this.setShowMessageInCart(false);
-        this.setShowMessageInCreate(false);
         this.addArtikel(artikel);
         this.updateEinkaufswagenView();
         this.giveArtikelAddedInfo(artikel);
@@ -127,18 +128,12 @@ public class WarenkorbController {
     }
 
     public void removeArtikelView(Artikel artikel) {
-        this.setShowMessageInList(false);
-        this.setShowMessageInCreate(false);
-        this.setShowMessageInCart(true);
         this.removeArtikel(artikel);
         this.giveArtikelDeletedInfo(artikel);
         this.updateEinkaufswagenView();
     }
 
     public void changeAnzahl(Artikel artikel) {
-        this.setShowMessageInList(false);
-        this.setShowMessageInCreate(false);
-        this.setShowMessageInCart(true);
         if(artikel.getAnzahl() == 0) {
             this.removeArtikelView(artikel);
             return;
@@ -158,15 +153,27 @@ public class WarenkorbController {
     }
 
     public void allowCreateMessageShow() {
-        System.out.println("allowing");
+        this.setShowMessageInCreate(true);
+        this.setShowMessageInCart(false);
+        this.setShowMessageInList(false);
+    }
+
+    public void allowListMessageShow() {
+        this.setShowMessageInCreate(false);
+        this.setShowMessageInCart(false);
+        this.setShowMessageInList(true);
+    }
+
+    public void allowCartMessageShow() {
+        this.setShowMessageInCreate(false);
         this.setShowMessageInCart(true);
-        this.setShowMessageInCreate(false);
-        this.setShowMessageInCreate(false);
+        this.setShowMessageInList(false);
     }
 
     // MESSAGES
 
     public void giveArtikelAddedInfo(Artikel artikel) {
+        this.allowListMessageShow();
         String message = String.format("Zum Warenkorb hinzugefuegt: %s - Anzahl: %d - Preis: %s",
                 artikel.getName(), artikel.getAnzahl(), artikel.getWarenkorbPrice());
 
@@ -174,12 +181,14 @@ public class WarenkorbController {
     }
 
     public void giveNumberChangedInfo(Artikel artikel) {
+        this.allowCartMessageShow();
         String message = String.format("Anzahl geandert: %s - Anzahl: %d, Preis: %s",
                 artikel.getName(), artikel.getAnzahl(), artikel.getWarenkorbPrice());
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", message));
     }
 
     public void giveArtikelDeletedInfo(Artikel artikel) {
+        this.allowCartMessageShow();
         String message = String.format("Aus dem Warenkorb entfernt: %s", artikel.getName());
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", message));
     }
