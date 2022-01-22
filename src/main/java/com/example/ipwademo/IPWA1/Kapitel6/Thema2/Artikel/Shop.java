@@ -95,8 +95,8 @@ public class Shop {
     }
 
     public void giveArtikelCreatedInfo(Artikel artikel) {
-        String message = String.format("Artikel erstellt: %s - Preis: %s",
-                artikel.getName(), artikel.getWarenkorbPrice());
+        String message = String.format("Artikel erstellt: %s - Preis: %d.%d€",
+                artikel.getName(), artikel.getPreisEuro(), artikel.getPreisCent());
 
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", message));
     }
