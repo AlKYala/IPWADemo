@@ -51,4 +51,8 @@ public abstract class Charakter implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String toString() {
+        return String.format("Charakter: Vorname: %s\nNachname: %s\nDescription:%s", this.vorname, this.nachname, this.description);
+    }
 }

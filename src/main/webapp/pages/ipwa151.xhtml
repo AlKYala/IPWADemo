@@ -52,7 +52,7 @@
                                     <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{noCharacter.nachname}"></h:inputText></div>
                                     <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{noCharacter.description}"></h:inputText></div>
                                     <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{noCharacter.pictureUrl}"></h:inputText></div>
-                                    <h:commandButton class="btn btn-primary"
+                                    <h:commandButton class="btn btn-primary" action="#{checkcontroller.debugCharakter(noCharacter)}"
                                                      value="Set"
                                     >
 
@@ -77,7 +77,7 @@
                                 <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Nachname</span><h:inputText class="form-control" type="text" value="#{reqCharacter.nachname}"></h:inputText></div>
                                 <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">Beschreibung</span><h:inputText class="form-control" type="text" value="#{reqCharacter.description}"></h:inputText></div>
                                 <div class="input-group" style="padding-bottom: 10px;"><span class="input-group-text">PicUrl</span><h:inputText class="form-control" type="text" value="#{reqCharacter.pictureUrl}"></h:inputText></div>
-                                <h:commandButton class="btn btn-primary"
+                                <h:commandButton class="btn btn-primary" action="#{checkcontroller.debugCharakter(reqCharacter)}"
                                                  value="Set"
                                 >
 

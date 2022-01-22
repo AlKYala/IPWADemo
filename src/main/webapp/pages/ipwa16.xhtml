@@ -74,7 +74,6 @@
               style="max-width: 70%; margin-bottom: 200px; margin-top: 200px;">
         <h:form id="artikelErstellenForm">
             <div class="card">
-                <h5>Advanced</h5>
                 <div class="ui-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-6">
                         <p:outputLabel value="Name"/>
@@ -94,11 +93,11 @@
                     </div>
                     <div class="p-field p-col-12 p-md-3">
                         <p:outputLabel value="Euros"/>
-                        <p:inputText value="#{artikelBean.euroString}"/>
+                        <p:spinner min="0" value="#{artikelBean.preisEuroList}"></p:spinner>
                     </div>
                     <div class="p-field p-col-12 p-md-3">
                         <p:outputLabel value="Cent"/>
-                        <p:inputText value="#{artikelBean.centString}"/>
+                        <p:spinner min="0" max="99" value="#{artikelBean.preisCentList}"></p:spinner>
                     </div>
                     <p:commandButton action="#{warenkorb.allowCreateMessageShow()}"
                                      value="Add to Cart" icon="pi pi-fw pi-plus" styleClass="ui-button-info">
