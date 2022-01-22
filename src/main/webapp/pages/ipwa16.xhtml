@@ -77,15 +77,15 @@
                 <div class="ui-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-6">
                         <p:outputLabel value="Name"/>
-                        <p:inputText value="#{artikelBean.name}"/>
+                        <p:inputText value="#{artikelBean.name}" required="true"/>
                     </div>
                     <div class="p-field p-col-12">
                         <p:outputLabel value="Beschreibung"/>
-                        <p:inputTextarea value="#{artikelBean.text}" rows="4"/>
+                        <p:inputTextarea value="#{artikelBean.text}" rows="4" required="true"/>
                     </div>
                     <div class="p-field p-col-12 p-md-6">
                         <p:outputLabel value="bildUrl"/>
-                        <p:inputText value="#{artikelBean.bild}"/>
+                        <p:inputText value="#{artikelBean.bild}" required="true"/>
                     </div>
                     <div class="p-field p-col-12 p-md-3">
                         <p:outputLabel value="Verfuegbar ab"/>
@@ -93,11 +93,11 @@
                     </div>
                     <div class="p-field p-col-12 p-md-3">
                         <p:outputLabel value="Euros"/>
-                        <p:spinner min="0" value="#{artikelBean.preisEuroList}"></p:spinner>
+                        <p:spinner min="0" value="#{artikelBean.preisEuroList}" required="true"></p:spinner>
                     </div>
                     <div class="p-field p-col-12 p-md-3">
                         <p:outputLabel value="Cent"/>
-                        <p:spinner min="0" max="99" value="#{artikelBean.preisCentList}"></p:spinner>
+                        <p:spinner min="0" max="99" value="#{artikelBean.preisCentList}" required="true"></p:spinner>
                     </div>
                     <p:commandButton action="#{warenkorb.allowCreateMessageShow()}"
                                      value="Add to Cart" icon="pi pi-fw pi-plus" styleClass="ui-button-info">
